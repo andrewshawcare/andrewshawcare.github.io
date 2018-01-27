@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ site.github.project_title }}</title>
+    <link rel="stylesheet" href="css/stylesheet.css" />
+  </head>
+  <body>
+    <section>
+      <header>
+        <h1><a href="{{site.baseurl}}">{{ site.github.project_title }}</a></h1>
+        <p>{{ site.github.project_tagline }}</p>
+      </header>
+      <nav>
+        <ol>
+          {% for post in site.posts reversed %}
+          <li>
+            <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ol>
+      </nav>
+    </section>
+    <article>
+      <header>
+        <h1>{{ page.title }}</h1>
+      </header>
+      <section>
+        {{content}}
+      </section>
+      <footer>
+        <a rel="prev" href="{{site.baseurl}}{{page.previous.url}}">{{page.previous.title}}</a>
+        <a rel="next" href="{{site.baseurl}}{{page.next.url}}">{{page.next.title}}</a>
+      </footer>
+    </article>
+  </body>
+</html>

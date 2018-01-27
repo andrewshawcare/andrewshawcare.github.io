@@ -3,7 +3,7 @@
 body {
   margin: 0 auto;
   padding: 2rem;
-  width: 32rem;
+  max-width: 32rem;
   font-family: 'Domine', sans-serif;
   line-height: 1.5rem;
 }

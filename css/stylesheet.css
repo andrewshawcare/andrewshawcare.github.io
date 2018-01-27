@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Domine:400,400i,700');
 
 body {
-  margin: 2rem auto;
-  padding: 0;
+  margin: 0 auto;
+  padding: 2rem;
   width: 32rem;
   font-family: 'Domine', sans-serif;
   line-height: 1.5rem;

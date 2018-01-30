@@ -4,8 +4,10 @@ body {
   margin: 0 auto;
   padding: 2rem;
   max-width: 32rem;
-  font-family: 'Domine', sans-serif;
+  font-family: 'Domine', serif;
   line-height: 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,h2,h3 { margin: 2rem 0; }

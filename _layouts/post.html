@@ -11,15 +11,7 @@
         <h1><a href="{{site.baseurl}}">{{ site.github.project_title }}</a></h1>
         <p>{{ site.github.project_tagline }}</p>
       </header>
-      <nav>
-        <ol>
-          {% for post in site.posts reversed %}
-          <li>
-            <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>
-          </li>
-          {% endfor %}
-        </ol>
-      </nav>
+      {% include post_navigation.html %}
     </section>
     <article>
       <header>
@@ -29,9 +21,7 @@
         {{content}}
       </section>
       <footer>
-        <a rel="prev" href="{{site.baseurl}}{{page.previous.url}}">{{page.previous.title}}</a>
-        <a rel="next" href="{{site.baseurl}}{{page.next.url}}">{{page.next.title}}</a>
-      </footer>
+        {% include page_navigation.html %}
     </article>
   </body>
 </html>

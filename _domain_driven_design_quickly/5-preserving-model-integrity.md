@@ -1,6 +1,6 @@
 ---
 title: Preserving Model Integrity
-date: 1970-01-01 00:00:04
+date: 1970-01-01 00:00:05
 ---
 ## What is a bounded context?
 

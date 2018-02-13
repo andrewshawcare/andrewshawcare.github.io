@@ -12,7 +12,16 @@ defaults:
       type: domain_driven_design_quickly
     values:
       layout: collection
+  -
+    scope:
+      path: ""
+      type: building_microservices
+    values:
+      layout: collection
 collections:
   domain_driven_design_quickly:
     output: true
     title: "Domain-Driven Design Quickly"
+  building_microservices:
+    output: true
+    title: "Building Microservices"

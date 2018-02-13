@@ -1,6 +1,6 @@
 ---
 title: The Ubiquitous Language
-date: 1970-01-01 00:00:01
+date: 1970-01-01 00:00:02
 ---
 ## What is an ubiquitous language?
 

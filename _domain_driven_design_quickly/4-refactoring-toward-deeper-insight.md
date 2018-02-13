@@ -1,6 +1,6 @@
 ---
 title: Refactoring Toward Deeper Insight
-date: 1970-01-01 00:00:03
+date: 1970-01-01 00:00:04
 ---
 ## How might one refine the domain model?
 

@@ -1,6 +1,6 @@
 ---
 title: What Is Domain-Driven Design
-date: 1970-01-01 00:00:00
+date: 1970-01-01 00:00:01
 ---
 ## What is domain-driven design?
 

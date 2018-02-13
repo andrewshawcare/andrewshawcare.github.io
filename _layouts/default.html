@@ -10,7 +10,7 @@
         <h2>Posts</h2>
         {% include navigation_posts.html posts=site.posts %}
         <h2>Collections</h2>
-        {% include navigation_collections.html collections=site.collections %}
+        {% include navigation_collections.html collections=site.collections items=site %}
         <h2>Projects</h2>
         {% include navigation_projects.html projects=site.github.public_repositories %}
       </header>

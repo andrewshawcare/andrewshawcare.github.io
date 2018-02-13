@@ -1,14 +1,14 @@
 <nav class="collections navigation">
   <dl>
-    {% for collection in site.collections %}
+    {% for collection in include.collections %}
     {% if collection.label == "posts" %}
       {% continue %}
     {% endif %}
     <dt>{{ collection.title }}</dt>
     <dd>
       <ol>
-        {% for post in site[collection.label] %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% for item in include.items[collection.label] %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
         {% endfor %}
       </ol>
     </dd>

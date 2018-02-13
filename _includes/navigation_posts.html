@@ -1,0 +1,7 @@
+<nav class="posts navigation">
+  <ol>
+    {% for post in include.posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ol>
+</nav>

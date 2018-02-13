@@ -1,1 +1,18 @@
-github: [metadata]
+title: Andrew Shaw Care
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  -
+    scope:
+      path: ""
+      type: domain_driven_design_quickly
+    values:
+      layout: collection
+collections:
+  domain_driven_design_quickly:
+    output: true
+    title: "Domain-Driven Design Quickly"

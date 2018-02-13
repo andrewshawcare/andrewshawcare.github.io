@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <section>
+      <header>
+        <h1><a href="/">{{ site.title }}</a></h1>
+        {% assign collection = site.collections | where: "label", page.collection | first %}
+        <h2>{{ collection.title }}</h2>
+        {% assign posts = site[collection.label] %}
+        {% include navigation_posts.html posts=posts %}
+      </header>
+    </section>
+    <article>
+      <header>
+        <h1>{{ page.title }}</h1>
+      </header>
+      <section>
+        {{content}}
+      </section>
+      <footer>
+        {% include navigation_page.html page=page %}
+      </footer>
+    </article>
+  </body>
+</html>

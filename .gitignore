@@ -1,2 +1,4 @@
 .jekyll-metadata
 _site
+.env
+.DS_Store

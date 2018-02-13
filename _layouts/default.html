@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ site.github.project_title }}</title>
-    <link rel="stylesheet" href="css/main.css" />
+    {% include head.html %}
   </head>
   <body>
     <section>
       <header>
-        <h1><a href="{{site.baseurl}}">{{ site.github.project_title }}</a></h1>
-        <p>{{ site.github.project_tagline }}</p>
+        <h1><a href="/">{{ site.title }}</a></h1>
+        <h2>Posts</h2>
+        {% include navigation_posts.html posts=site.posts %}
+        <h2>Collections</h2>
+        {% include navigation_collections.html %}
+        <h2>Projects</h2>
+        {% include navigation_projects.html %}
       </header>
-      {% include post_navigation.html %}
     </section>
     <article>
       <section>

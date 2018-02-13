@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% include head.html %}
+    {% include head.html title=site.title %}
   </head>
   <body>
     <section>
@@ -10,9 +10,9 @@
         <h2>Posts</h2>
         {% include navigation_posts.html posts=site.posts %}
         <h2>Collections</h2>
-        {% include navigation_collections.html %}
+        {% include navigation_collections.html collections=site.collections %}
         <h2>Projects</h2>
-        {% include navigation_projects.html %}
+        {% include navigation_projects.html projects=site.github.public_repositories %}
       </header>
     </section>
     <article>

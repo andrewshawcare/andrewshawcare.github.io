@@ -1,13 +1,13 @@
+{% assign collection = site.collections | where: "label", page.collection | first %}
 <!doctype html>
 <html lang="en">
   <head>
-    {% include head.html %}
+    {% include head.html title=collection.title %}
   </head>
   <body>
     <section>
       <header>
         <h1><a href="/">{{ site.title }}</a></h1>
-        {% assign collection = site.collections | where: "label", page.collection | first %}
         <h2>{{ collection.title }}</h2>
         {% assign posts = site[collection.label] %}
         {% include navigation_posts.html posts=posts %}

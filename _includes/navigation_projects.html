@@ -1,6 +1,6 @@
 <nav class="projects navigation">
   <dl>
-    {% for project in site.github.public_repositories %}
+    {% for project in include.projects %}
       <dt><a href="{{ project.html_url }}" target="_blank">{{ project.name }}</a></dt>
       <dd>{{ project.description }}</dd>
     {% endfor %}

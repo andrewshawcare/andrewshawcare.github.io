@@ -1,7 +1,9 @@
 <nav class="collections navigation">
   <dl>
     {% for collection in site.collections %}
-    {% if collection.label != "posts" %}
+    {% if collection.label == "posts" %}
+      {% continue %}
+    {% endif %}
     <dt>{{ collection.title }}</dt>
     <dd>
       <ol>
@@ -10,7 +12,6 @@
         {% endfor %}
       </ol>
     </dd>
-    {% endif %}
     {% endfor %}
   </dl>
 </nav>

@@ -1,0 +1,73 @@
+---
+---
+
+$base-font-size: 1.2rem;
+$font-size-multiplier: 0.414;
+$h1-font-size: $base-font-size * $font-size-multiplier * 6;
+$h2-font-size: $base-font-size * $font-size-multiplier * 5;
+$h3-font-size: $base-font-size * $font-size-multiplier * 4;
+$h4-font-size: $base-font-size * $font-size-multiplier * 3;
+$h5-font-size: $base-font-size * $font-size-multiplier * 2;
+$h6-font-size: $base-font-size * $font-size-multiplier * 1;
+$line-height-multiplier: 1.2;
+
+@mixin line-height($font-size) {
+  line-height: $font-size * $line-height-multiplier;
+}
+
+body {
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 36rem;
+  font-size: $base-font-size;
+  @include line-height($base-font-size)
+}
+
+h1 {
+  font-size: $h1-font-size;
+  @include line-height($h1-font-size);
+}
+h2 {
+  font-size: $h2-font-size;
+  @include line-height($h2-font-size);
+}
+h3 {
+  font-size: $h3-font-size;
+  @include line-height($h3-font-size);
+}
+h4 {
+  font-size: $h4-font-size;
+  @include line-height($h4-font-size);
+}
+h5 {
+  font-size: $h5-font-size;
+  @include line-height($h5-font-size);
+}
+h6 {
+  font-size: $h6-font-size;
+  @include line-height($h6-font-size);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.page.navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "prev next";
+
+  a[rel="prev"] {
+    grid-area: prev;
+    text-align: left;
+  }
+
+  a[rel="next"] {
+    grid-area: next;
+    text-align: right;
+  }
+}

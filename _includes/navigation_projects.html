@@ -2,7 +2,7 @@
   <dl>
     {% for project in include.projects %}
       <dt><a href="{{ project.html_url }}" target="_blank">{{ project.name }}</a></dt>
-      <dd>{{ project.description }}</dd>
+      <dd><p>{{ project.description }}</p></dd>
     {% endfor %}
   </dl>
 </nav>

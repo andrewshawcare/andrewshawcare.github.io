@@ -58,6 +58,12 @@ img {
   max-width: 100%;
 }
 
+dl {
+  dt {
+    font-weight: bold;
+  }
+}
+
 .page.navigation {
   display: grid;
   grid-template-columns: 1fr 1fr;

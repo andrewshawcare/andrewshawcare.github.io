@@ -1,6 +1,6 @@
-{% assign collection = site.collections | where: "label", page.collection | first %}
 <!doctype html>
 <html lang="en">
+  {% assign collection = site.collections | where: "label", page.collection | first %}
   <head>
     {% include head.html title=collection.title %}
   </head>

@@ -17,10 +17,14 @@ body {
   margin: 0 auto;
   padding: 1rem;
   max-width: 36rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: $base-font-size;
   @include line-height($base-font-size)
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Playfair Display', serif;
 }
 
 h1 {

@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM --platform=linux/amd64 ubuntu
 
 ENV LANGUAGE="en_US.UTF-8" \
   LC_ALL="C.UTF-8" \
@@ -10,10 +10,10 @@ RUN chmod +x /tini
 
 RUN apt-get update && \
   apt-get install --assume-yes \
-    build-essential \
-    git \
-    ruby-dev \
-    zlib1g-dev && \
+  build-essential \
+  git \
+  ruby-dev \
+  zlib1g-dev && \
   rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler

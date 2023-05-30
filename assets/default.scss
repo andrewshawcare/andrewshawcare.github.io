@@ -1,7 +1,7 @@
 ---
 ---
 
-$line-height-multiplier: 1.666;
+$line-height-multiplier: 1.333;
 $font-size-multiplier: 1.333;
 $base-font-size: 1rem;
 $h4-font-size: $base-font-size * $font-size-multiplier;
@@ -58,6 +58,29 @@ dl {
   }
 }
 
+code {
+  font-family: 'DM Mono', monospace;
+}
+
+hr {
+  border: none;
+  border-top: 0.25rem double;
+  overflow: visible;
+  text-align: center;
+  margin: 12rem 0;
+  height: 0;
+}
+
+hr:after {
+  background-color: #ffffff;
+  border: 0.25rem double;
+  border-radius: 50%;
+  content: '§';
+  padding: 0 0.5rem 0.25rem 0.5rem;
+  position: relative;
+  top: -0.9rem;
+}
+
 img + em {
   display: block;
 }
@@ -76,4 +99,20 @@ img + em {
     grid-area: next;
     text-align: right;
   }
+}
+
+pre.highlight {
+  padding: 1rem;
+}
+
+.reveal.deck {
+  width: 960px;
+  height: 700px;
+}
+
+/* TODO: Add better specificity or new theme */
+:root {
+  --r-main-font: 'DM Sans', sans-serif !important;
+  --r-heading-font: 'Playfair Display', serif !important;
+  --r-code-font: 'DM Mono', monospace !important;
 }

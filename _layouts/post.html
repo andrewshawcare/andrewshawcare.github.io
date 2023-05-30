@@ -1,7 +1,13 @@
+{% capture markdown_relative_path %}{{page.title | slugify}}.md{% endcapture %}
+
 <!doctype html>
 <html lang="en">
   <head>
     {% include head.html title=page.title %}
+    <link rel="stylesheet" href="https://www.unpkg.com/reveal.js@4.5.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://www.unpkg.com/reveal.js@4.5.0/dist/theme/simple.css" />
+    <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.8.0/styles/monokai.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/monokai.css" />
   </head>
   <body>
     <section>
@@ -11,11 +17,38 @@
     </section>
     <article>
       <section>
-        <header>
-          <h1>{{ page.title }}</h1>
-        </header>
+        <div class="reveal deck">
+          <div class="slides">
+            <section data-markdown data-separator-notes="^## Notes">
+              <textarea data-template>
+                {% include_relative {{ markdown_relative_path }}  %}
+              </textarea>
+            </section>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section>
         {{content}}
       </section>
+      <hr />
     </article>
+    <script src="https://www.unpkg.com/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://www.unpkg.com/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+    <script src="https://www.unpkg.com/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://www.unpkg.com/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+    <script>
+      const reveal = new Reveal(document.querySelector('.reveal'), {
+        embedded: true,
+        keyboardCondition: 'focused'
+      });
+      reveal.initialize({
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes
+        ]
+      });
+    </script>
   </body>
 </html>

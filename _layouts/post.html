@@ -40,9 +40,11 @@
     <script>
       const reveal = new Reveal(document.querySelector('.reveal'), {
         embedded: true,
-        keyboardCondition: 'focused'
+        keyboardCondition: 'focused',
+
       });
       reveal.initialize({
+        controls: false,
         plugins: [
           RevealMarkdown,
           RevealHighlight,

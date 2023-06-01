@@ -1,8 +1,16 @@
 <nav class="projects navigation">
   <dl>
     {% for project in include.projects %}
-      <dt><a href="{{ project.html_url }}" target="_blank">{{ project.name }}</a></dt>
-      <dd><p>{{ project.description }}</p></dd>
+      <dt>{{ project.name }}</dt>
+      <dd>
+        <p>{{ project.description }}</p>
+        <ul>
+          {% if project.homepage %}
+          <li><a href="{{ project.homepage }}" target="_blank">Homepage</a></li>
+          {% endif %}
+          <li><a href="{{ project.html_url }}" target="_blank">Repository</a></li>
+        </ul>
+      </dd>
     {% endfor %}
   </dl>
 </nav>

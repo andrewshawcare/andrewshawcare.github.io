@@ -2,7 +2,7 @@
 
 Reflect meaningfully, act intentionally
 
-## Notes
+### Narrative
 
 Hello again!
 
@@ -12,13 +12,10 @@ Today we're going to discuss the power of retrospectives for creating change and
 
 ## Why retrospectives?
 
-<img
-    alt="Discuss, change, test, and improve feedback loop"
-    src="/assets/discuss-change-test-improve.png"
-    style="height:30rem"
-/>
+![Discuss, change, test, and improve feedback loop](/assets/discuss-change-test-improve.png)
+<!-- .element: class="r-stretch" -->
 
-## Notes
+### Narrative
 
 Our journey with retrospectives begins by understanding their importance.
 
@@ -41,7 +38,7 @@ References:
   * Make it interesting
   * Keep what works
 
-## Notes
+### Narrative
 
 Moving on, let's explore the structure of a retrospective.
 
@@ -55,7 +52,7 @@ There's many ways to structure the rest of the retrospective and we'll go throug
 
 > Regardless of what we discover, we understand and truly believe that everyone did the best job they could, given what they knew at the time, their skills and abilities, the resources available, and the situation at hand. — Norm Kerth
 
-## Notes
+### Narrative
 
 Starting off, the prime directive sets the tone for what could (and should!) be critical reflection.
 
@@ -73,16 +70,11 @@ Individuals and experiences should be separated so that we can focus on the expe
 
 * A low safety score requires pivoting from the retrospective into a [safety building activity](https://www.funretrospectives.com/creating-safety/).
 
-<img
-    alt="Safety check illustration"
-    src="/assets/safety-check.png"
-    style="margin: -1rem auto; height:16rem"
-/>
-<figcaption style="font-size: 0.8rem; font-style: italic;">
-    <a href="https://www.funretrospectives.com/safety-check/">Source: FunRetrospectives</a>
-</figcaption>
+![Safety check illustration](/assets/safety-check.png)
+<!-- .element: class="r-stretch" -->
+*[FunRetrospectives](https://www.funretrospectives.com/safety-check/)*
 
-## Notes
+### Narrative
 
 Up next, the safety check.
 
@@ -99,16 +91,11 @@ References:
 
 ## Health check
 
-<img
-    alt="Health check screenshot"
-    src="/assets/team-health-check.webp"
-    style="margin: -1rem auto; height:30rem"
-/>
-<figcaption style="font-size: 0.8rem; font-style: italic;">
-    <a href="https://teamhealthcheck.io/">Source: Team Health Check Tool</a>
-</figcaption>
+![Health check screenshot](/assets/team-health-check.webp)
+<!-- .element: class="r-stretch" -->
+*[Team Health Check Tool](https://teamhealthcheck.io/)*
 
-## Notes
+### Narrative
 
 A nice addition to your retro is the health check.
 
@@ -125,16 +112,11 @@ A tool like the one linked here can get you started.
 
 ## Reflect
 
-<img
-    alt="Reflect screenshot"
-    src="/assets/reflect.png"
-    style="margin: -1rem auto; height:30rem"
-/>
-<figcaption style="font-size: 0.8rem; font-style: italic;">
-    <a href="https://easyretro.io/">Source: EasyRetro</a>
-</figcaption>
+![Reflect screenshot](/assets/reflect.png)
+<!-- .element: class="r-stretch" -->
+*[EasyRetro](https://easyretro.io/)*
 
-## Notes
+### Narrative
 
 The first major activity is reflection.
 
@@ -149,16 +131,11 @@ Reflection should be anonymous and time-boxed.
 
 ## Clarify
 
-<img
-    alt="Clarify screenshot"
-    src="/assets/clarify.png"
-    style="margin: -1rem auto; height:30rem"
-/>
-<figcaption style="font-size: 0.8rem; font-style: italic;">
-    <a href="https://easyretro.io/">Source: EasyRetro</a>
-</figcaption>
+![Clarify screenshot](/assets/clarify.png)
+<!-- .element: class="r-stretch" -->
+*[EasyRetro](https://easyretro.io/)*
 
-## Notes
+### Narrative
 
 Clarification follows, and is used to quickly clear up confusion.
 
@@ -173,16 +150,11 @@ You can also group related stickies here.
 
 ## Vote
 
-<img
-    alt="Vote screenshot"
-    src="/assets/vote.png"
-    style="margin: -1rem auto; height:30rem"
-/>
-<figcaption style="font-size: 0.8rem; font-style: italic;">
-    <a href="https://easyretro.io/">Source: EasyRetro</a>
-</figcaption>
+![Vote screenshot](/assets/vote.png)
+<!-- .element: class="r-stretch" -->
+*[EasyRetro](https://easyretro.io/)*
 
-## Notes
+### Narrative
 
 Next is the voting stage, which aims to prioritize issues democratically. We will use these votes to aid in the discussion that follows.
 
@@ -191,16 +163,11 @@ Next is the voting stage, which aims to prioritize issues democratically. We wil
 
 ## Discuss
 
-<img
-    alt="Discuss screenshot"
-    src="/assets/discuss.png"
-    style="margin: -1rem auto; height:30rem"
-/>
-<figcaption style="font-size: 0.8rem; font-style: italic;">
-    <a href="https://easyretro.io/">Source: EasyRetro</a>
-</figcaption>
+![Discuss screenshot](/assets/discuss.png)
+<!-- .element: class="r-stretch" -->
+*[EasyRetro](https://easyretro.io/)*
 
-## Notes
+### Narrative
 
 The discussion phase targets the issues that received the most votes.
 
@@ -211,16 +178,11 @@ Effective moderation here ensures goal-oriented conversations, time management, 
 
 ## Remediate
 
-<img
-    alt="Remediate screenshot"
-    src="/assets/remediate.png"
-    style="margin: -1rem auto; height:30rem"
-/>
-<figcaption style="font-size: 0.8rem; font-style: italic;">
-    <a href="https://easyretro.io/">Source: EasyRetro</a>
-</figcaption>
+![Remediate screenshot](/assets/remediate.png)
+<!-- .element: class="r-stretch" -->
+*[EasyRetro](https://easyretro.io/)*
 
-## Notes
+### Narrative
 
  Finally, remediation is about action items that capture ideas for productive change.
  
@@ -230,13 +192,10 @@ Effective moderation here ensures goal-oriented conversations, time management, 
 
 ## Summary
 
-<img
-    alt="Discuss, change, test, and improve feedback loop"
-    src="/assets/discuss-change-test-improve.png"
-    style="height:30rem"
-/>
+![Discuss, change, test, and improve feedback loop](/assets/discuss-change-test-improve.png)
+<!-- .element: class="r-stretch" -->
 
-## Notes
+### Narrative
 
 In conclusion, retrospectives act as a vehicle for improvement through discussion.
 

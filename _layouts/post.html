@@ -1,57 +1,80 @@
-{% capture markdown_relative_path %}{{page.title | slugify}}.md{% endcapture %}
+{% capture markdown_relative_path %}{{ page.title | slugify }}.md{% endcapture %}
 
 <!doctype html>
 <html lang="en">
   <head>
     {% include head.html title=page.title %}
     <link rel="stylesheet" href="https://www.unpkg.com/reveal.js@4.5.0/dist/reveal.css" />
-    <link rel="stylesheet" href="https://www.unpkg.com/reveal.js@4.5.0/dist/theme/simple.css" />
+    <link rel="stylesheet" href="/assets/reveal.css" />
     <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.8.0/styles/monokai.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/monokai.css" />
   </head>
   <body>
     <section>
       <header>
-        <h1><a href="/">{{ site.title }}</a></h1>
+        <h1>
+          <a href="/">{{ site.title }}</a>
+        </h1>
       </header>
     </section>
-    <article>
+    <article class="post">
+      {% if page.youtube_url %}
       <section>
-        <div class="reveal deck">
-          <div class="slides">
-            <section data-markdown data-separator-notes="^## Notes">
-              <textarea data-template>
-                {% include_relative {{ markdown_relative_path }}  %}
-              </textarea>
-            </section>
+        <iframe
+          width="640"
+          height="360"
+          src="{{ page.youtube_url }}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </section>
+      {% endif %}
+      {% if page.is_deck %}
+        <section>
+          <div class="reveal deck">
+            <div class="slides">
+              <section data-markdown data-separator-notes="^### Narrative">
+                <textarea data-template>
+                  {% include_relative {{ markdown_relative_path }} %}
+                </textarea>
+              </section>
+            </div>
           </div>
-        </div>
-      </section>
-      <hr />
+        </section>
+      {% endif %}
       <section>
-        {{content}}
+        {{ content }}
       </section>
-      <hr />
     </article>
     <script src="https://www.unpkg.com/reveal.js@4.5.0/dist/reveal.js"></script>
     <script src="https://www.unpkg.com/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
     <script src="https://www.unpkg.com/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
     <script src="https://www.unpkg.com/reveal.js@4.5.0/plugin/notes/notes.js"></script>
     <script>
+      
       const reveal = new Reveal(document.querySelector('.reveal'), {
         embedded: true,
-        keyboardCondition: 'focused',
+        keyboardCondition: 'focused'
+      });
 
-      });
       reveal.initialize({
-        width: 1280,
-        height: 720,
-        plugins: [
-          RevealMarkdown,
-          RevealHighlight,
-          RevealNotes
-        ]
+        width: 640,
+        height: 360,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
       });
+      
+      reveal.addKeyBinding(
+        {
+          keyCode: 67,
+          key: 'C',
+          description: 'Toggle controls'
+        },
+        () => {
+          const { controls } = reveal.getConfig();
+          reveal.configure({ controls: !controls })
+        }
+      );
     </script>
   </body>
 </html>

@@ -16,7 +16,7 @@ $h1-font-size: $h2-font-size * $font-size-multiplier;
 body {
   margin: 0 auto;
   padding: 1rem;
-  max-width: 64rem;
+  max-width: 1280px;
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: $base-font-size;
@@ -67,7 +67,7 @@ hr {
   border-top: 0.25rem double;
   overflow: visible;
   text-align: center;
-  margin: 12rem 0;
+  margin: 6rem 0;
   height: 0;
 }
 
@@ -79,6 +79,11 @@ hr:after {
   padding: 0 0.5rem 0.25rem 0.5rem;
   position: relative;
   top: -0.9rem;
+}
+
+img {
+  max-height: 480px;
+  margin: 0 auto;
 }
 
 img + em {
@@ -105,14 +110,20 @@ pre.highlight {
   padding: 1rem;
 }
 
-.reveal.deck {
-  width: 960px;
-  height: 700px;
+.post {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* TODO: Add better specificity or new theme */
-:root {
-  --r-main-font: 'DM Sans', sans-serif !important;
-  --r-heading-font: 'Playfair Display', serif !important;
-  --r-code-font: 'DM Mono', monospace !important;
+.reveal.deck {
+  width: 640px;
+  height: 360px;
+}
+
+.reveal p:has(> img), .reveal p > img {
+  margin: 0;
+}
+
+.reveal p:has(> img) + p:has(> em) {
+  font-size: medium;
 }

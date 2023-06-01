@@ -121,7 +121,7 @@ A tool like the one linked here can get you started.
 * https://teamhealthcheck.io/
 
 ---
-<!-- .slide: data-transition="slide-in fade-out" -->
+<!-- .slide: data-transition="slide-in fade-out" data-auto-animate -->
 
 ## Reflect
 
@@ -145,7 +145,7 @@ An example of common categories for reflection are, "Went well", "To improve", a
 Reflection should be anonymous and time-boxed.
 
 ---
-<!-- .slide: data-transition="fade" -->
+<!-- .slide: data-transition="fade" data-auto-animate -->
 
 ## Clarify
 
@@ -169,7 +169,7 @@ Once an explanation is provided, quickly move on.
 You can also group related stickies here.
 
 ---
-<!-- .slide: data-transition="fade" -->
+<!-- .slide: data-transition="fade" data-auto-animate -->
 
 ## Vote
 
@@ -187,7 +187,7 @@ You can also group related stickies here.
 Next is the voting stage, which aims to prioritize issues democratically. We will use these votes to aid in the discussion that follows.
 
 ---
-<!-- .slide: data-transition="fade" -->
+<!-- .slide: data-transition="fade" data-auto-animate -->
 
 ## Discuss
 
@@ -207,7 +207,7 @@ The discussion phase targets the issues that received the most votes.
 Effective moderation here ensures goal-oriented conversations, time management, and active participation.
 
 ---
-<!-- .slide: data-transition="fade-in slide-out" -->
+<!-- .slide: data-transition="fade-in slide-out" data-auto-animate -->
 
 ## Remediate
 

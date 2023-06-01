@@ -121,6 +121,14 @@ pre.highlight {
 
 .post > .presentation {
   grid-area: header-left;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.presentation > iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .post > .deck {
@@ -132,8 +140,8 @@ pre.highlight {
 }
 
 .reveal.deck {
-  width: 640px;
-  height: 360px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .reveal p:has(> img), .reveal p > img {

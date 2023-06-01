@@ -2,7 +2,7 @@
 
 What to avoid, what to consider
 
-## Narrative
+### Narrative
 
 This will only display in the notes window.
 

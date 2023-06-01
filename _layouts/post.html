@@ -19,7 +19,7 @@
     </section>
     <article class="post">
       {% if page.youtube_url %}
-      <section>
+      <section class="presentation">
         <iframe
           width="640"
           height="360"
@@ -31,7 +31,7 @@
       </section>
       {% endif %}
       {% if page.is_deck %}
-        <section>
+        <section class="deck">
           <div class="reveal deck">
             <div class="slides">
               <section data-markdown data-separator-notes="^### Narrative">
@@ -43,8 +43,10 @@
           </div>
         </section>
       {% endif %}
-      <section>
+      <section class="content">
+        <hr />
         {{ content }}
+        <hr />
       </section>
     </article>
     <script src="https://www.unpkg.com/reveal.js@4.5.0/dist/reveal.js"></script>

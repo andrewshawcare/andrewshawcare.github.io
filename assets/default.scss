@@ -16,7 +16,7 @@ $h1-font-size: $h2-font-size * $font-size-multiplier;
 body {
   margin: 0 auto;
   padding: 1rem;
-  max-width: 1280px;
+  max-width: 48rem;
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: $base-font-size;
@@ -112,15 +112,9 @@ pre.highlight {
 }
 
 .post {
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-areas:
-    "header-left header-left header-right header-right"
-    "content-left content-middle content-middle content-right"
 }
 
 .post > .presentation {
-  grid-area: header-left;
   width: 100%;
   aspect-ratio: 16 / 9;
 }
@@ -129,14 +123,6 @@ pre.highlight {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-}
-
-.post > .deck {
-  grid-area: header-right;
-}
-
-.post > .content {
-  grid-area: content-middle;
 }
 
 .reveal.deck {

@@ -18,7 +18,7 @@
       </header>
     </section>
     <article class="post">
-      {% if page.youtube_url %}
+      {% if page.youtube_url and page.youtube_url != empty %}
       <section class="presentation">
         <iframe
           src="{{ page.youtube_url }}?modestbranding=1&listType=user_uploads&rel=0"

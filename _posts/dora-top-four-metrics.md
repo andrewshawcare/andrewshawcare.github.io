@@ -79,9 +79,9 @@ I've added an additional metric that isn't directly covered in the DORA metrics:
 
 This helps define recovery time, which we will discuss next.
 
-System failure rate complements the change failure rate by accounting for both planned and unplanned service degradation.
+System failure rate complements change failure rate by accounting for service degradation due to external systems.
 
-Having both these metrics allows us to account for all degraded service events.
+Having both of these failure metrics allows us to account for planned and unplanned service degredation.
 
 ---
 

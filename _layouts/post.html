@@ -59,9 +59,12 @@
       });
 
       reveal.initialize({
-        width: 640,
-        height: 360,
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        width: 960,
+        height: 540,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        progress: false,
+        transitionSpeed: 'slow',
+        margin: 0
       });
       
       reveal.addKeyBinding(

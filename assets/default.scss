@@ -130,6 +130,11 @@ pre.highlight {
   aspect-ratio: 16 / 9;
 }
 
+.reveal .slides>section.present {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
 .reveal p:has(> img), .reveal p > img {
   margin: 0;
 }

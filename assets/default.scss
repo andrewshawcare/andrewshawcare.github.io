@@ -111,9 +111,6 @@ pre.highlight {
   padding: 1rem;
 }
 
-.post {
-}
-
 .post > .presentation {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -130,15 +127,20 @@ pre.highlight {
   aspect-ratio: 16 / 9;
 }
 
-.reveal .slides>section.present {
-  max-height: 100%;
-  overflow-y: auto;
-}
-
 .reveal p:has(> img), .reveal p > img {
   margin: 0;
 }
 
 .reveal p:has(> img) + p:has(> em) {
   font-size: medium;
+}
+
+.good {
+  background-color: #ecfccb;
+}
+.limited {
+  background-color: #fef9c3;
+}
+.bad {
+  background-color: #ffe4e6;
 }

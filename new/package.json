@@ -6,6 +6,9 @@
     "scripts": {
         "build": "node --no-warnings=ExperimentalWarning --loader ts-node/esm build.ts"
     },
+    "dependencies": {
+        "lit": "3.1.0"
+    },
     "devDependencies": {
         "@markdoc/markdoc": "0.4.0",
         "@types/node": "^20.10.5",

@@ -1,0 +1,9 @@
+{
+    "type": "module",
+    "scripts": {
+        "build": "node index.js"
+    },
+    "devDependencies": {
+        "@markdoc/markdoc": "0.4.0"
+    }
+}

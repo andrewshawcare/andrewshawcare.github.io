@@ -1,6 +1,7 @@
 import Markdoc from "@markdoc/markdoc";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "node:path";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import fs from "node:fs"
 import { Configuration, WebpackPluginInstance } from "webpack";
 import yaml from "js-yaml";
@@ -8,6 +9,8 @@ import { glob } from "glob";
 import markdocConfig from "./markdoc.config.js";
 
 const plugins = new Array<WebpackPluginInstance>();
+
+plugins.push(new MiniCssExtractPlugin())
 
 const defaultHtmlWebpackPluginOptions: HtmlWebpackPlugin.Options = {
     title: "Andrew Shaw Care",
@@ -67,7 +70,7 @@ const configuration: Configuration = {
             },
             {
                 test: /.css$/,
-                use: 'css-loader',
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
                 exclude: '/node_modules/'
             }
         ]

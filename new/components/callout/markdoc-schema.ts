@@ -1,5 +1,5 @@
 export default {
-    render: "callout",
+    render: "asc-callout",
     children: ["paragraph"],
     attributes: {
         type: {

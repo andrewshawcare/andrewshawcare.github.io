@@ -1,5 +1,7 @@
 import { html, LitElement, TemplateResult } from "lit";
+import { customElement } from "lit/decorators.js";
 
+@customElement("asc-callout")
 export class Callout extends LitElement {
     type: string;
 

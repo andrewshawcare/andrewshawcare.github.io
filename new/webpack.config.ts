@@ -6,7 +6,7 @@ import { Configuration, WebpackPluginInstance } from "webpack";
 import yaml from "js-yaml";
 
 import { glob } from "glob";
-import CalloutSchema from "./components/callout/schema.js";
+import calloutMarkdocSchema from "./components/callout/markdoc-schema.js";
 
 const plugins = new Array<WebpackPluginInstance>();
 
@@ -33,7 +33,7 @@ markdocFiles.forEach((markdocFile) => {
     const templateName = (frontmatter.template) ? frontmatter.template : "default";
     const template = `templates/${templateName}.html`;
 
-    const transformedMarkdocNode = Markdoc.transform(markdocNode, { tags: { CalloutSchema } });
+    const transformedMarkdocNode = Markdoc.transform(markdocNode, { tags: { calloutMarkdocSchema } });
 
     const htmlContent = Markdoc.renderers.html(transformedMarkdocNode);
 

@@ -15,6 +15,10 @@ const defaultHtmlWebpackPluginOptions: HtmlWebpackPlugin.Options = {
     templateParameters: {
         content: ""
     },
+    meta: {
+        description: "The personal web site of Andrew Shaw Care",
+        viewport: "width=device-width, initial-scale=1"
+    },
     scriptLoading: "module",
     xhtml: true
 };

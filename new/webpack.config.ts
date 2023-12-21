@@ -52,7 +52,7 @@ markdocFiles.forEach((markdocFile) => {
 })
 const configuration: Configuration = {
     mode: "none",
-    entry: path.resolve("components", "index.ts"),
+    entry: "./index.ts",
     resolve: {
         extensionAlias: {
             ".js": [".ts", ".js"]
@@ -63,6 +63,11 @@ const configuration: Configuration = {
             {
                 test: /.ts$/,
                 use: 'ts-loader',
+                exclude: '/node_modules/'
+            },
+            {
+                test: /.css$/,
+                use: 'css-loader',
                 exclude: '/node_modules/'
             }
         ]

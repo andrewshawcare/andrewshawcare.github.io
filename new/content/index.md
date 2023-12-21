@@ -1,3 +1,7 @@
+---
+template: post
+---
+
 # Hello, Markdoc!
 
 ```callout

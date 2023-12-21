@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="The personal web site of Andrew Shaw Care" />
-    <title>Andrew Shaw Care</title>
+    <%= htmlWebpackPlugin.tags.headTags %>
   </head>
   <body>
-    {{CONTENT}}
-    <script type="module" src="components/callout/component.js"></script>
+    <h1>This is a post!</h1>
+    <%= content %>
+    <%= htmlWebpackPlugin.tags.bodyTags %>
   </body>
 </html>

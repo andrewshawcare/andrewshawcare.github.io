@@ -13,7 +13,7 @@ const node = Markdoc.parse(content);
 const transformedNode = Markdoc.transform(node, { tags: { callout }});
 const html = Markdoc.renderers.html(transformedNode);
 
-const buildPath = path.join(__dirname, "build")
+const buildPath = path.join(__dirname, "dist")
 
 fs.mkdirSync(buildPath, { recursive: true });
 fs.writeFileSync(path.join(buildPath, "index.html"), template.replace(/{{CONTENT}}/, html));

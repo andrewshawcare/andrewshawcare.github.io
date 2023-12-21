@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "module": "Node16",
-        "outDir": "build",
-        "skipLibCheck": true
+        "target": "ES2017",
+        "outDir": "dist",
+        "strict": true
     }
 }

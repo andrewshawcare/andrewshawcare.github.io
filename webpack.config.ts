@@ -38,8 +38,11 @@ const buildMarkdocPlugin = (markdocFile: string) => {
     const templatePath = path.join("templates", "layouts");
     const template = path.join(templatePath, templateFile);
     
+    const filename = path.relative("content", markdocFile).replace(".md", ".html");
+
     return new HtmlWebpackPlugin({
         ...defaultHtmlWebpackPluginOptions,
+        filename,
         template,
         templateParameters: {
             content: htmlContent
@@ -47,7 +50,7 @@ const buildMarkdocPlugin = (markdocFile: string) => {
     });
 }
 
-const markdocFiles = await glob("**/*.md", { ignore: "node_modules/**" });
+const markdocFiles = await glob("content/**/*.md", { ignore: "node_modules/**" });
 
 const configuration: Configuration = {
     mode: "none",

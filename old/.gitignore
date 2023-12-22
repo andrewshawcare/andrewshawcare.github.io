@@ -1,0 +1,8 @@
+.jekyll-metadata
+_site/
+.env
+.DS_Store
+.idea/
+*.iml
+vendor/bundle
+.bundle

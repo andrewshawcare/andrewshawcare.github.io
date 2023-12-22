@@ -4,9 +4,6 @@ on:
 
 jobs:
   deploy:
-    defaults:
-      run:
-        working-directory: ./new
     permissions:
       pages: write
       id-token: write

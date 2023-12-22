@@ -8,10 +8,6 @@ import yaml from "js-yaml";
 import { glob } from "glob";
 import markdocConfig from "./markdoc.config.js";
 
-const plugins = new Array<WebpackPluginInstance>();
-
-plugins.push(new MiniCssExtractPlugin())
-
 const defaultHtmlWebpackPluginOptions: HtmlWebpackPlugin.Options = {
     title: "Andrew Shaw Care",
     templateParameters: {
@@ -25,34 +21,34 @@ const defaultHtmlWebpackPluginOptions: HtmlWebpackPlugin.Options = {
     xhtml: true
 };
 
-const markdocFiles = await glob("**/*.md", { ignore: "node_modules/**" });
-
-markdocFiles.forEach((markdocFile) => {
+const buildMarkdocPlugin = (markdocFile: string) => {
     const markdocContent = fs.readFileSync(markdocFile).toString("utf8");
-
     const markdocNode = Markdoc.parse(markdocContent);
+    const renderableTreeNode = Markdoc.transform(markdocNode, markdocConfig);
+    const htmlContent = Markdoc.renderers.html(renderableTreeNode);
 
     const frontmatter: Record<string, any> = (markdocNode.attributes.frontmatter)
         ? yaml.load(markdocNode.attributes.frontmatter) as Record<string, any>
-        : {}
+        : {};
+
+    const defaultTemplateName = "default";
+    const templateName = (typeof frontmatter.layout === "string") ? frontmatter.layout : defaultTemplateName;
+    const templateExtension = "html";
+    const templateFile = `${templateName}.${templateExtension}`;
+    const templatePath = path.join("templates", "layouts");
+    const template = path.join(templatePath, templateFile);
     
-    const templateName = (frontmatter.template) ? frontmatter.template : "default";
-    const template = `templates/${templateName}.html`;
+    return new HtmlWebpackPlugin({
+        ...defaultHtmlWebpackPluginOptions,
+        template,
+        templateParameters: {
+            content: htmlContent
+        }
+    });
+}
 
-    const transformedMarkdocNode = Markdoc.transform(markdocNode, markdocConfig);
+const markdocFiles = await glob("**/*.md", { ignore: "node_modules/**" });
 
-    const htmlContent = Markdoc.renderers.html(transformedMarkdocNode);
-
-    plugins.push(
-        new HtmlWebpackPlugin({
-            ...defaultHtmlWebpackPluginOptions,
-            template,
-            templateParameters: {
-                content: htmlContent
-            }
-        })
-    );
-})
 const configuration: Configuration = {
     mode: "none",
     entry: "./index.ts",
@@ -75,7 +71,10 @@ const configuration: Configuration = {
             }
         ]
     },
-    plugins,
+    plugins: [
+        new MiniCssExtractPlugin(),
+        ...markdocFiles.map(buildMarkdocPlugin)
+    ],
     output: {
         filename: "index.js",
         path: path.resolve("dist")

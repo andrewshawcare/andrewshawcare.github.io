@@ -3,10 +3,11 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "node:path";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import fs from "node:fs"
-import { Configuration, WebpackPluginInstance } from "webpack";
+import { Configuration } from "webpack";
 import yaml from "js-yaml";
 import { glob } from "glob";
 import markdocConfig from "./markdoc.config.js";
+import isRelativeUrl from "is-relative-url"
 
 const defaultHtmlWebpackPluginOptions: HtmlWebpackPlugin.Options = {
     title: "Andrew Shaw Care",
@@ -21,9 +22,24 @@ const defaultHtmlWebpackPluginOptions: HtmlWebpackPlugin.Options = {
     xhtml: true
 };
 
+const transformRelativeMarkdownLinks = (node: Markdoc.Node) => {
+    if (
+        node.type === "link" &&
+        typeof node.attributes.href === "string" &&
+        isRelativeUrl(node.attributes.href)
+    ) {
+        node.attributes.href = node.attributes.href.replace(".md", ".html");
+    }
+
+    node.children.forEach(transformRelativeMarkdownLinks);
+}
+
 const buildMarkdocPlugin = (markdocFile: string) => {
     const markdocContent = fs.readFileSync(markdocFile).toString("utf8");
     const markdocNode = Markdoc.parse(markdocContent);
+    
+    transformRelativeMarkdownLinks(markdocNode);
+
     const renderableTreeNode = Markdoc.transform(markdocNode, markdocConfig);
     const htmlContent = Markdoc.renderers.html(renderableTreeNode);
 

@@ -4,4 +4,4 @@
 This is a caution callout!
 {% /callout %}
 
-See my [post](./posts/post.html).
+See my [post](./posts/post.md).

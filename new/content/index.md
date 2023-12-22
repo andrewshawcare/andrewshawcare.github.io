@@ -1,5 +1,5 @@
 ---
-template: post
+layout: post
 ---
 
 # Hello, Markdoc!

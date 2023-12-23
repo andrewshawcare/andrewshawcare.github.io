@@ -5,7 +5,7 @@ import calloutMarkdocSchema from "./components/callout/markdoc-schema.js";
 const markdocConfig: Config = {
     nodes: {},
     tags: {
-        calloutMarkdocSchema
+        callout: calloutMarkdocSchema
     },
     variables: {},
     functions: {},

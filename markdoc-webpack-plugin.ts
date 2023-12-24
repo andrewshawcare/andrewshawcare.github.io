@@ -1,5 +1,4 @@
 import Markdoc from "@markdoc/markdoc";
-import markdocConfig from "./markdoc.config.js";
 import yaml from "js-yaml";
 import isRelativeUrl from "is-relative-url"
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -42,7 +41,7 @@ interface MarkdocWebpackOptions {
     htmlWebpackPluginOptions: HtmlWebpackPlugin.Options
 };
 
-export class MarkdocWebpackPlugin implements WebpackPluginInstance {
+export default class MarkdocWebpackPlugin implements WebpackPluginInstance {
     readonly name = "MarkdocWebpackPlugin";
     readonly htmlWebpackPlugins: Array<HtmlWebpackPlugin>;
 

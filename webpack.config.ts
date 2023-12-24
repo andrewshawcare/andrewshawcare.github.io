@@ -1,7 +1,7 @@
 import path from "node:path";
 import { Configuration } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { MarkdocWebpackPlugin } from "./markdoc-webpack-plugin.js";
+import MarkdocWebpackPlugin from "./markdoc-webpack-plugin.js";
 import markdocConfig from "./markdoc.config.js";
 
 const configuration: Configuration = {

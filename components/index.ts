@@ -1,1 +1,1 @@
-import { Callout } from "./callout/index.js"
+import "./callout/index.js"

@@ -6,7 +6,7 @@ import markdocConfig from "./markdoc.config.js";
 
 const configuration: Configuration = {
   mode: "none",
-  entry: ["./index.ts", "./index.css"],
+  entry: "./index.ts",
   resolve: {
     extensionAlias: { ".js": [".ts", ".js"] },
   },

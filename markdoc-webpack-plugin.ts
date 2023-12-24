@@ -19,9 +19,11 @@ const transformRelativeMarkdownLinksIntoRelativeHtmlLinks = (node: Markdoc.Node)
     node.children.forEach(transformRelativeMarkdownLinksIntoRelativeHtmlLinks);
 }
 
-type Frontmatter = Record<string, any>;
+type Frontmatter = {
+    layout?: any
+};
 
-const parseFrontmatter = (markdocNode: Markdoc.Node): Frontmatter => {
+const resolveFrontmatter = (markdocNode: Markdoc.Node): Frontmatter => {
     return (markdocNode.attributes.frontmatter)
         ? yaml.load(markdocNode.attributes.frontmatter) as Frontmatter
         : {};
@@ -62,7 +64,7 @@ export default class MarkdocWebpackPlugin implements WebpackPluginInstance {
 
             const filename = path.format({ ...path.parse(contentPath), base: undefined, ext: ".html" });
             
-            const frontmatter = parseFrontmatter(markdocNode);
+            const frontmatter = resolveFrontmatter(markdocNode);
             const template = path.format({
                 dir: options.layout.dir,
                 name: (typeof frontmatter.layout === "string") ? frontmatter.layout : options.layout.defaultName,

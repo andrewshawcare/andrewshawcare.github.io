@@ -4,7 +4,7 @@
         "node": "^20.10.0"
     },
     "scripts": {
-        "build": "NODE_OPTIONS='--loader ts-node/esm' webpack"
+        "build": "NODE_OPTIONS='--loader ts-node/esm --no-warnings=ExperimentalWarning' webpack"
     },
     "dependencies": {
         "lit": "3.1.0"

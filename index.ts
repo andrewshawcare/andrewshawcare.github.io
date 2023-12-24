@@ -1,2 +1,1 @@
-import "./components/index.js";
-import "./stylesheets/index.css";
+import "./components/callout/index.js";

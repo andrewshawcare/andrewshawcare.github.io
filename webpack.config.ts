@@ -6,11 +6,9 @@ import markdocConfig from "./markdoc.config.js";
 
 const configuration: Configuration = {
     mode: "none",
-    entry: "./index.ts",
+    entry: ["./index.ts", "./index.css"],
     resolve: {
-        extensionAlias: {
-            ".js": [".ts", ".js"]
-        }
+        extensionAlias: { ".js": [".ts", ".js"] }
     },
     module: {
         rules: [
@@ -51,7 +49,7 @@ const configuration: Configuration = {
         })
     ],
     output: {
-        filename: "index.js",
+        filename: "main.js",
         path: path.resolve("dist")
     }
 };

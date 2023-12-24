@@ -1,34 +1,40 @@
 {
-    "type": "module",
-    "engines": {
-        "node": "^20.10.0"
-    },
-    "scripts": {
-        "build": "NODE_OPTIONS='--loader ts-node/esm --no-warnings=ExperimentalWarning' webpack",
-        "develop": "NODE_OPTIONS='--loader ts-node/esm --no-warnings=ExperimentalWarning' webpack serve"
-    },
-    "dependencies": {
-        "lit": "3.1.0"
-    },
-    "devDependencies": {
-        "@markdoc/markdoc": "0.4.0",
-        "@types/js-yaml": "^4.0.9",
-        "@types/node": "^20.10.5",
-        "@types/react": "18.2.45",
-        "@types/webpack": "5.28.5",
-        "css-loader": "^6.8.1",
-        "glob": "^10.3.10",
-        "html-loader": "^4.2.0",
-        "html-webpack-plugin": "5.6.0",
-        "is-relative-url": "^4.0.0",
-        "js-yaml": "^4.1.0",
-        "mini-css-extract-plugin": "^2.7.6",
-        "react": "18.2.0",
-        "ts-loader": "9.5.1",
-        "ts-node": "10.9.2",
-        "typescript": "5.3.3",
-        "webpack": "5.89.0",
-        "webpack-cli": "5.1.4",
-        "webpack-dev-server": "^4.15.1"
-    }
+  "type": "module",
+  "engines": {
+    "node": "^20.10.0"
+  },
+  "scripts": {
+    "format": "prettier --check .",
+    "lint": "eslint",
+    "build": "NODE_OPTIONS='--loader ts-node/esm --no-warnings=ExperimentalWarning' webpack",
+    "develop": "NODE_OPTIONS='--loader ts-node/esm --no-warnings=ExperimentalWarning' webpack serve"
+  },
+  "dependencies": {
+    "lit": "3.1.0"
+  },
+  "devDependencies": {
+    "@markdoc/markdoc": "0.4.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.10.5",
+    "@types/react": "18.2.45",
+    "@types/webpack": "5.28.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.56.0",
+    "glob": "^10.3.10",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "5.6.0",
+    "is-relative-url": "^4.0.0",
+    "js-yaml": "^4.1.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^3.1.1",
+    "react": "18.2.0",
+    "ts-loader": "9.5.1",
+    "ts-node": "10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "5.89.0",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
 }

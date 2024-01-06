@@ -33,7 +33,14 @@ const transformConfig = {
 
 const abstractSyntaxTreeNode = Markdoc.parse(content);
 const renderableTreeNode = Markdoc.transform(abstractSyntaxTreeNode, transformConfig)
-const html = Markdoc.renderers.html(renderableTreeNode);
+const renderedContent = Markdoc.renderers.html(renderableTreeNode);
 
-mkdirSync("dist");
-fs.writeFileSync(path.resolve("dist", "index.html"), html);
+const template = fs.readFileSync(path.resolve("static", "index.html")).toString("utf8");
+
+if (!fs.existsSync("dist")) {
+    fs.mkdirSync("dist");
+}
+
+fs.copyFileSync(path.resolve("static", "index.css"), path.resolve("dist", "index.css"));
+fs.copyFileSync(path.resolve("static", "index.js"), path.resolve("dist", "index.js"));
+fs.writeFileSync(path.resolve("dist", "index.html"), template.replace(/{{ CONTENT }}/, renderedContent));

@@ -2,22 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { default as Markdoc } from "@markdoc/markdoc";
 import ejs from "ejs"
+import diagram from "./tags/diagram/schema.js";
 
 const transformConfig = {
     tags: {
-        diagram: {
-            render: "diagram",
-            transform: (abstractSyntaxTreeNode, transformConfig) => {
-                const attributes = abstractSyntaxTreeNode.transformAttributes(transformConfig);
-                const content = [];
-                for (const childNode of abstractSyntaxTreeNode.walk()) {
-                    if (childNode.type === "text") {
-                        content.push(childNode.attributes.content + "\n");
-                    }
-                }
-                return new Markdoc.Tag("diagram", attributes, content);
-            }
-        }
+        diagram
     }
 };
 

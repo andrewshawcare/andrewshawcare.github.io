@@ -1,17 +1,7 @@
-import fs, { mkdirSync } from "node:fs";
+import fs from "node:fs";
 import path from "node:path";
 import { default as Markdoc } from "@markdoc/markdoc";
-
-const content = `
-Hello, world!
-
-{% diagram type="sequence" title="Alphabet soup!" %}
-a --> b
-b --> c
-
-c --> d
-{% /diagram %}
-`;
+import ejs from "ejs"
 
 const transformConfig = {
     tags: {
@@ -31,16 +21,27 @@ const transformConfig = {
     }
 };
 
-const abstractSyntaxTreeNode = Markdoc.parse(content);
-const renderableTreeNode = Markdoc.transform(abstractSyntaxTreeNode, transformConfig)
-const renderedContent = Markdoc.renderers.html(renderableTreeNode);
-
-const template = fs.readFileSync(path.resolve("static", "index.html")).toString("utf8");
+const template = fs.readFileSync(path.resolve("templates", "layouts", "default.ejs")).toString("utf8");
+const compiledTemplate = ejs.compile(template);
 
 if (!fs.existsSync("dist")) {
     fs.mkdirSync("dist");
 }
 
-fs.copyFileSync(path.resolve("static", "index.css"), path.resolve("dist", "index.css"));
-fs.copyFileSync(path.resolve("static", "index.js"), path.resolve("dist", "index.js"));
-fs.writeFileSync(path.resolve("dist", "index.html"), template.replace(/{{ CONTENT }}/, renderedContent));
+fs.cpSync(path.resolve("static"), path.resolve("dist"), {recursive: true});
+
+// loop through content
+const content = `
+Hello, world!
+
+{% diagram type="sequence" title="Alphabet soup!" %}
+a --> b
+b --> c
+
+c --> d
+{% /diagram %}
+`;
+const abstractSyntaxTreeNode = Markdoc.parse(content);
+const renderableTreeNode = Markdoc.transform(abstractSyntaxTreeNode, transformConfig)
+const renderedContent = Markdoc.renderers.html(renderableTreeNode);
+fs.writeFileSync(path.resolve("dist", "index.html"), compiledTemplate({content: renderedContent}));

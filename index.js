@@ -67,8 +67,7 @@ for (const markdocFilePath of markdocFilePaths) {
         {
             ...transformConfig,
             variables: {
-                cwd: outputDir,
-                base: markdocFileParsedPath.dir
+                cwd: outputDir
             }
         }
     );

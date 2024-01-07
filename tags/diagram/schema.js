@@ -41,8 +41,6 @@ export default {
                 content.push(childNode.attributes.content);
             }
         }
-
-        console.log(transformConfig.variables.outputDir)
         
         const outputPath = await generateSequenceDiagram({
             content: content.join("\n"),
@@ -51,7 +49,7 @@ export default {
         
         return new Markdoc.Tag(
             "img",
-            { src: `${transformConfig.variables.base}/${path.parse(outputPath).base}`, alt: attributes.title }
+            { src: path.parse(outputPath).base, alt: attributes.title }
         );
     }
 };

@@ -5,10 +5,9 @@
   },
   "scripts": {
     "build": "node index.js",
-    "watch-build": "chokidar \"content/**/*.md\" \"static/**/*\" -c \"npm run build\"",
-    "livereload": "livereload ./dist -w 1000",
-    "serve": "http-server ./dist",
-    "develop": "concurrently \"npm:serve\" \"npm:livereload\" \"npm:watch-build\""
+    "watch-build": "chokidar \"content/**/*.md\" \"static/**/*\" --initial --command \"npm run build && touch ./reload/reload.now\"",
+    "serve": "reload --dir dist --watch-dir reload --exts now",
+    "develop": "concurrently --kill-others-on-fail \"npm:serve\" \"npm:watch-build\""
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "10.6.1",
@@ -16,8 +15,7 @@
     "concurrently": "8.2.2",
     "ejs": "3.1.9",
     "glob": "10.3.10",
-    "http-server": "14.1.1",
-    "livereload": "0.9.3",
+    "reload": "3.2.1",
     "is-relative-url": "4.0.0",
     "@markdoc/markdoc": "0.4.0",
     "typescript": "5.3.3"

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "noEmit": true,
     "module": "Node16",
     "target": "ES2022",
     "strict": true

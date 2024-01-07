@@ -29,14 +29,14 @@ const renderTemplate = ({content, templatePath}) => {
     return ejs.compile(template)({ content });
 };
 
-const distPath = path.resolve("dist");
+const outputPath = path.resolve("dist");
 const staticPath = path.resolve("static");
 
-if (fs.existsSync(distPath)) {
-    fs.rmSync(distPath, { recursive: true, force: true })
+if (fs.existsSync(outputPath)) {
+    fs.rmSync(outputPath, { recursive: true, force: true })
 }
-fs.mkdirSync(distPath);
-fs.cpSync(staticPath, distPath, {recursive: true});
+fs.mkdirSync(outputPath);
+fs.cpSync(staticPath, outputPath, {recursive: true});
 
 // loop through content
 const contentPath = path.resolve("content");
@@ -56,22 +56,32 @@ for (const markdocFilePath of markdocFilePaths) {
         }
     }
 
-    const renderableTreeNode = Markdoc.transform(abstractSyntaxTreeNode, transformConfig);
+    const markdocFileParsedPath = path.parse(markdocFilePath);
+    const outputDir = path.resolve(outputPath, markdocFileParsedPath.dir);
+    if (outputDir.length > 0) {
+        fs.mkdirSync(outputDir, { recursive: true });
+    }
+
+    const renderableTreeNode = await Markdoc.transform(
+        abstractSyntaxTreeNode,
+        {
+            ...transformConfig,
+            variables: {
+                cwd: outputDir,
+                base: markdocFileParsedPath.dir
+            }
+        }
+    );
     const renderedContent = Markdoc.renderers.html(renderableTreeNode);
-    const parsedMarkdocFilePath = path.parse(markdocFilePath)
-    const parsedHtmlFilePath = {
-        ...parsedMarkdocFilePath,
-        dir: path.resolve(distPath, parsedMarkdocFilePath.dir),
+    const htmlFileParsedPath = {
+        ...markdocFileParsedPath,
+        dir: outputDir,
         base: undefined,
         ext: ".html"
     };
     
-    if (parsedHtmlFilePath.dir.length > 0) {
-        fs.mkdirSync(parsedHtmlFilePath.dir, { recursive: true });
-    }
-    
     fs.writeFileSync(
-        path.format(parsedHtmlFilePath),
+        path.format(htmlFileParsedPath),
         renderTemplate({
             content: renderedContent,
             templatePath: path.resolve("templates", "layouts", "default.ejs")

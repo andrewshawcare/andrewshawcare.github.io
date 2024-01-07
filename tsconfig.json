@@ -3,5 +3,8 @@
     "module": "Node16",
     "target": "ES2022",
     "strict": true
+  },
+  "ts-node": {
+    "transpileOnly": true
   }
 }

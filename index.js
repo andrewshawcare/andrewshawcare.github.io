@@ -1,8 +1,13 @@
+/**
+ * @typedef {import("node:fs").PathLike} PathLike
+ */
+
 import fs from "node:fs";
 import path from "node:path";
 import { default as Markdoc } from "@markdoc/markdoc";
 import ejs from "ejs"
 import diagram from "./tags/diagram/schema.js";
+import { globSync } from "glob";
 
 const transformConfig = {
     tags: {
@@ -10,27 +15,54 @@ const transformConfig = {
     }
 };
 
-const template = fs.readFileSync(path.resolve("templates", "layouts", "default.ejs")).toString("utf8");
-const compiledTemplate = ejs.compile(template);
+/**
+ * @typedef {Object} RenderTemplateParameters
+ * @property {PathLike} templatePath
+ * @property {string} content
+ */
 
-if (!fs.existsSync("dist")) {
-    fs.mkdirSync("dist");
+
+/** @type {(renderTemplateParameters: RenderTemplateParameters) => string} */
+const renderTemplate = ({content, templatePath}) => {
+    const template = fs.readFileSync(templatePath).toString("utf8");
+    return ejs.compile(template)({ content });
+};
+
+const distPath = path.resolve("dist");
+const staticPath = path.resolve("static");
+
+if (fs.existsSync(distPath)) {
+    fs.rmSync(distPath, { recursive: true, force: true })
 }
-
-fs.cpSync(path.resolve("static"), path.resolve("dist"), {recursive: true});
+fs.mkdirSync(distPath);
+fs.cpSync(staticPath, distPath, {recursive: true});
 
 // loop through content
-const content = `
-Hello, world!
+const contentPath = path.resolve("content");
+const markdocFilePaths = globSync("**/*.md", {cwd: contentPath});
 
-{% diagram type="sequence" title="Alphabet soup!" %}
-a --> b
-b --> c
-
-c --> d
-{% /diagram %}
-`;
-const abstractSyntaxTreeNode = Markdoc.parse(content);
-const renderableTreeNode = Markdoc.transform(abstractSyntaxTreeNode, transformConfig)
-const renderedContent = Markdoc.renderers.html(renderableTreeNode);
-fs.writeFileSync(path.resolve("dist", "index.html"), compiledTemplate({content: renderedContent}));
+for (const markdocFilePath of markdocFilePaths) {
+    const content = fs.readFileSync(path.resolve(contentPath, markdocFilePath)).toString("utf8");
+    const abstractSyntaxTreeNode = Markdoc.parse(content);
+    const renderableTreeNode = Markdoc.transform(abstractSyntaxTreeNode, transformConfig);
+    const renderedContent = Markdoc.renderers.html(renderableTreeNode);
+    const parsedMarkdocFilePath = path.parse(markdocFilePath)
+    const parsedHtmlFilePath = {
+        ...parsedMarkdocFilePath,
+        dir: path.resolve(distPath, parsedMarkdocFilePath.dir),
+        base: undefined,
+        ext: ".html"
+    };
+    
+    if (parsedHtmlFilePath.dir.length > 0) {
+        fs.mkdirSync(parsedHtmlFilePath.dir, { recursive: true });
+    }
+    
+    fs.writeFileSync(
+        path.format(parsedHtmlFilePath),
+        renderTemplate({
+            content: renderedContent,
+            templatePath: path.resolve("templates", "layouts", "default.ejs")
+        })
+    );
+}

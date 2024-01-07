@@ -8,6 +8,7 @@ import { default as Markdoc } from "@markdoc/markdoc";
 import ejs from "ejs"
 import diagram from "./tags/diagram/schema.js";
 import { globSync } from "glob";
+import isRelativeUrl from "is-relative-url"
 
 const transformConfig = {
     tags: {
@@ -44,6 +45,17 @@ const markdocFilePaths = globSync("**/*.md", {cwd: contentPath});
 for (const markdocFilePath of markdocFilePaths) {
     const content = fs.readFileSync(path.resolve(contentPath, markdocFilePath)).toString("utf8");
     const abstractSyntaxTreeNode = Markdoc.parse(content);
+
+    for (const node of abstractSyntaxTreeNode.walk()) {
+        if (
+            node.type === "link" &&
+            typeof node.attributes.href === "string" &&
+            isRelativeUrl(node.attributes.href)
+        ) {
+            node.attributes.href = node.attributes.href.replace(/\.md$/, ".html");
+        }
+    }
+
     const renderableTreeNode = Markdoc.transform(abstractSyntaxTreeNode, transformConfig);
     const renderedContent = Markdoc.renderers.html(renderableTreeNode);
     const parsedMarkdocFilePath = path.parse(markdocFilePath)

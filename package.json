@@ -4,20 +4,23 @@
     "node": "^20.10.0"
   },
   "scripts": {
-    "build": "node index.js",
+    "build": "node --loader ts-node/esm index.ts",
     "watch-build": "chokidar \"content/**/*.md\" \"static/**/*\" --initial --command \"npm run build && touch ./reload/reload.now\"",
     "serve": "reload --dir dist --watch-dir reload --exts now",
     "develop": "concurrently --kill-others-on-fail \"npm:serve\" \"npm:watch-build\""
   },
   "devDependencies": {
+    "@markdoc/markdoc": "0.4.0",
     "@mermaid-js/mermaid-cli": "10.6.1",
+    "@types/ejs": "3.1.5",
     "chokidar-cli": "3.0.0",
     "concurrently": "8.2.2",
     "ejs": "3.1.9",
     "glob": "10.3.10",
+    "patch-package": "8.0.0",
     "reload": "3.2.1",
     "is-relative-url": "4.0.0",
-    "@markdoc/markdoc": "0.4.0",
+    "ts-node": "10.9.2",
     "typescript": "5.3.3"
   }
 }

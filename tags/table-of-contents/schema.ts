@@ -8,16 +8,28 @@ const tableOfContentsSchema: Schema = {
   attributes: {
     type: {
       type: String,
-      default: "article",
-      matches: ["thesis", "article", "section"],
+      default: "articles",
+      matches: ["anthologies", "articles", "sections", "headings"],
     },
   },
   transform(node, config) {
+    const attributes = node.transformAttributes(config);
     const orderedListTag = new Markdoc.Tag("ol");
 
     // TODO: Make this a schema validation
     if (typeof config.variables?.contentDir !== "string") {
       return orderedListTag;
+    }
+
+    switch (attributes.type) {
+      case "anthologies":
+        break;
+      case "articles":
+        break;
+      case "sections":
+        break;
+      case "headings":
+        break;
     }
 
     const contentDir = config.variables.contentDir;

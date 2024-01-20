@@ -1,3 +1,7 @@
-# Domain-driven design
+---
+title: Domain-driven design
+---
 
-{% table-of-contents type="thesis" /%}
+# {% $frontmatter.title %}
+
+{% table-of-contents type="articles" /%}

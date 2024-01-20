@@ -3,16 +3,27 @@ import * as path from "node:path";
 import { default as Markdoc } from "@markdoc/markdoc";
 import * as ejs from "ejs";
 import diagram from "./tags/diagram/schema.js";
+import { tableOfContentsSchema } from "./tags/table-of-contents/schema.js";
 import { globSync } from "glob";
 import isRelativeUrl from "is-relative-url";
+import jsYaml from "js-yaml";
 
 const transformConfig = {
   tags: {
     diagram,
+    "table-of-contents": tableOfContentsSchema,
   },
 };
 
-/** @type {(renderTemplateParameters: RenderTemplateParameters) => string} */
+const getFrontmatter = (abstractSyntaxTreeNode: Markdoc.Node): object => {
+  const frontmatter = jsYaml.load(
+    abstractSyntaxTreeNode.attributes.frontmatter,
+  );
+  return typeof frontmatter === "object" && frontmatter !== null
+    ? frontmatter
+    : {};
+};
+
 const renderTemplate = ({
   content,
   templatePath,
@@ -52,7 +63,10 @@ for (const markdocFilePath of markdocFilePaths) {
     }
   }
 
+  const frontmatter = getFrontmatter(abstractSyntaxTreeNode);
+
   const markdocFileParsedPath = path.parse(markdocFilePath);
+  const contentDir = path.resolve(contentPath, markdocFileParsedPath.dir);
   const outputDir = path.resolve(outputPath, markdocFileParsedPath.dir);
   if (outputDir.length > 0) {
     fs.mkdirSync(outputDir, { recursive: true });
@@ -61,7 +75,9 @@ for (const markdocFilePath of markdocFilePaths) {
   const renderableTreeNode = await Markdoc.transform(abstractSyntaxTreeNode, {
     ...transformConfig,
     variables: {
-      cwd: outputDir,
+      frontmatter,
+      contentDir,
+      outputDir,
     },
   });
   const renderedContent = Markdoc.renderers.html(renderableTreeNode);

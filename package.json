@@ -5,18 +5,20 @@
   },
   "scripts": {
     "build": "node --import ./register-hooks.js index.ts",
-    "watch-build": "chokidar \"content/**/*.md\" \"static/**/*\" --initial --command \"npm run build && touch ./reload/reload.now\"",
+    "watch-build": "chokidar 'index.ts' 'content/**/*.md' 'static/**/*' 'tags/**/*' --initial --command 'npm run build && touch ./reload/reload.now'",
     "serve": "reload --dir dist --watch-dir reload --exts now",
-    "develop": "concurrently --kill-others-on-fail \"npm:serve\" \"npm:watch-build\""
+    "develop": "concurrently --kill-others-on-fail 'npm:serve' 'npm:watch-build'"
   },
   "devDependencies": {
     "@markdoc/markdoc": "0.4.0",
     "@mermaid-js/mermaid-cli": "10.6.1",
     "@types/ejs": "3.1.5",
+    "@types/js-yaml": "4.0.9",
     "chokidar-cli": "3.0.0",
     "concurrently": "8.2.2",
     "ejs": "3.1.9",
     "glob": "10.3.10",
+    "js-yaml": "4.1.0",
     "patch-package": "8.0.0",
     "reload": "3.2.1",
     "is-relative-url": "4.0.0",

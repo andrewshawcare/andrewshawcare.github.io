@@ -5,7 +5,7 @@ import * as mermaid from "@mermaid-js/mermaid-cli";
 import { randomUUID } from "node:crypto";
 
 const generateSequenceDiagram = async (
-  { content, cwd }: { content: string; cwd: string } = { content: "", cwd: "" },
+  { content, dir }: { content: string; dir: string } = { content: "", dir: "" },
 ) => {
   const inputMarkup = `sequenceDiagram
     ${content.split("\n").join("\n    ")}
@@ -14,8 +14,8 @@ const generateSequenceDiagram = async (
   const name = randomUUID();
   const inputPath = `${name}.mmd`;
   const outputPathObject = {
-    dir: cwd,
-    name: name,
+    dir,
+    name,
     ext: ".svg",
   } as const satisfies path.FormatInputPathObject;
 
@@ -58,7 +58,7 @@ export default {
 
     const outputPath = await generateSequenceDiagram({
       content: content.join("\n"),
-      cwd: transformConfig.variables?.cwd || "",
+      dir: transformConfig.variables?.outputDir || "",
     });
 
     return new Markdoc.Tag("img", {

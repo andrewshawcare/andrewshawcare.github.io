@@ -3,6 +3,11 @@ import * as path from "node:path";
 import { default as Markdoc, Node, Config } from "@markdoc/markdoc";
 import * as mermaid from "@mermaid-js/mermaid-cli";
 import { randomUUID } from "node:crypto";
+import {
+  default as variablesSchema,
+  Schema as Variables,
+} from "../../schemas/variables.json.js";
+import { validateTypeUsingSchema } from "../../validate-type-using-schema.js";
 
 const generateSequenceDiagram = async (
   { content, dir }: { content: string; dir: string } = { content: "", dir: "" },
@@ -46,6 +51,11 @@ export default {
     },
   },
   async transform(abstractSyntaxTreeNode: Node, transformConfig: Config) {
+    const variables = validateTypeUsingSchema<Variables>(
+      transformConfig.variables,
+      variablesSchema,
+    );
+
     const attributes =
       abstractSyntaxTreeNode.transformAttributes(transformConfig);
     const content = [];
@@ -58,7 +68,7 @@ export default {
 
     const outputPath = await generateSequenceDiagram({
       content: content.join("\n"),
-      dir: transformConfig.variables?.outputDir || "",
+      dir: variables.outputDir,
     });
 
     return new Markdoc.Tag("img", {

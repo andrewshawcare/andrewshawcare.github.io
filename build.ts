@@ -92,6 +92,7 @@ const outputPath = Path.resolve("dist");
 const staticPath = Path.resolve("static");
 const contentPath = Path.resolve("content");
 const layoutsPath = Path.resolve("templates", "layouts");
+const layoutsDefault = "default";
 
 overwriteDirectory({ srcDir: staticPath, destDir: outputPath });
 
@@ -133,13 +134,10 @@ for (const markdocRelativeFilePath of globSync("**/*.md", {
 
   const htmlFilePath = transformPath({
     path: markdocRelativeFilePath,
-    transform: {
-      dir: outputDir,
-      ext: ".html",
-    },
+    transform: { dir: outputDir, ext: ".html" },
   });
 
-  const layout = frontmatter.layout || "default";
+  const layout = frontmatter.layout || layoutsDefault;
   const template = fs
     .readFileSync(Path.resolve(layoutsPath, `${layout}.ejs`))
     .toString("utf8");

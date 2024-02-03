@@ -2,6 +2,11 @@ import Markdoc, { Schema } from "@markdoc/markdoc";
 import fs from "node:fs";
 import path from "node:path";
 import JsYaml from "js-yaml";
+import { validateTypeUsingSchema } from "../../validate-type-using-schema.js";
+import {
+  default as variablesSchema,
+  Schema as Variables,
+} from "../../schemas/variables.json.js";
 
 const tableOfContentsSchema: Schema = {
   render: "ol",
@@ -13,11 +18,16 @@ const tableOfContentsSchema: Schema = {
     },
   },
   transform(node, config) {
+    const variables = validateTypeUsingSchema<Variables>(
+      config.variables,
+      variablesSchema,
+    );
+
     const attributes = node.transformAttributes(config);
     const orderedListTag = new Markdoc.Tag("ol");
 
     // TODO: Make this a schema validation
-    if (typeof config.variables?.contentDir !== "string") {
+    if (typeof variables.contentDir !== "string") {
       return orderedListTag;
     }
 
@@ -32,7 +42,7 @@ const tableOfContentsSchema: Schema = {
         break;
     }
 
-    const contentDir = config.variables.contentDir;
+    const contentDir = variables.contentDir;
 
     const articleFilenames = fs
       .readdirSync(contentDir)

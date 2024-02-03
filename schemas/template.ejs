@@ -1,0 +1,7 @@
+import { FromSchema } from "json-schema-to-ts";
+
+const schema = (<%- schema -%>) as const
+
+type Schema = FromSchema<typeof schema>
+
+export { schema as default, Schema }

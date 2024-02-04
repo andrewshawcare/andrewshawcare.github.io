@@ -2,10 +2,13 @@ import Path from "node:path";
 
 import { compileJsonSchemas } from "./compile-json-schemas.js";
 import { compileStaticAssets } from "./compile-static-assets.js";
-import {
-  ReplaceAnchorTagHrefRelativeUrlExtensionRenderMiddlewareModule,
-  compileMarkdocDocuments,
-} from "./compile-markdoc-documents.js";
+import { compileMarkdocDocuments } from "./compile-markdoc-documents.js";
+import { TransformModule } from "./middleware/transform-module.js";
+import { Tag } from "@markdoc/markdoc";
+import isRelativeUrl from "is-relative-url";
+import { FilterModule } from "./middleware/filter-module.js";
+import { SequentialModule } from "./middleware/sequential-module.js";
+import { transformPath } from "./transform-path.js";
 
 const outputPath = Path.resolve("dist");
 
@@ -25,9 +28,24 @@ await compileMarkdocDocuments({
   layoutsPath: Path.resolve("templates", "layouts"),
   layoutsDefault: "default",
   renderMiddleware: [
-    new ReplaceAnchorTagHrefRelativeUrlExtensionRenderMiddlewareModule({
-      originalExtension: ".md",
-      replacementExtension: ".html",
+    new SequentialModule<Tag>({
+      modules: [
+        new FilterModule<Tag>({
+          predicate: (tag) => tag.name === "a",
+        }),
+        new TransformModule<Tag, any>({
+          selector: (tag) => tag.attributes.href,
+          transform: (href) =>
+            typeof href === "string" &&
+            isRelativeUrl(href) &&
+            Path.parse(href).ext === ".md"
+              ? transformPath({
+                  path: href,
+                  transform: { ext: ".html" },
+                })
+              : href,
+        }),
+      ],
     }),
   ],
 });

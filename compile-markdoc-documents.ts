@@ -1,11 +1,10 @@
 import Path from "node:path";
 import FileSystem from "node:fs";
-import Markdoc from "@markdoc/markdoc";
+import Markdoc, { Tag } from "@markdoc/markdoc";
 import EJS from "ejs";
 import JSYAML from "js-yaml";
 
 import { globSync } from "glob";
-import isRelativeUrl from "is-relative-url";
 import { transformConfig } from "./markdoc-config.js";
 import {
   default as frontmatterSchema,
@@ -13,7 +12,8 @@ import {
 } from "./schemas/frontmatter.json.js";
 import { Schema as Variables } from "./schemas/variables.json.js";
 import { validateTypeUsingSchema } from "./validate-type-using-schema.js";
-import { FormatInputPathObject } from "node:path";
+import { Module } from "./middleware/module.js";
+import { transformPath } from "./transform-path.js";
 
 const getFrontmatter = (node: Markdoc.Node): Frontmatter => {
   const frontmatter = node.attributes.frontmatter || "";
@@ -22,54 +22,6 @@ const getFrontmatter = (node: Markdoc.Node): Frontmatter => {
     frontmatterSchema,
   );
 };
-
-const transformPath = ({
-  path,
-  transform,
-}: {
-  path: string;
-  transform: FormatInputPathObject;
-}) => {
-  const parsedPath = Path.parse(path);
-  return Path.format({ ...parsedPath, ...{ base: undefined }, ...transform });
-};
-
-interface RenderMiddlewareModule {
-  processTag({ tag }: { tag: Markdoc.Tag }): Markdoc.Tag;
-}
-
-export class ReplaceAnchorTagHrefRelativeUrlExtensionRenderMiddlewareModule
-  implements RenderMiddlewareModule
-{
-  private readonly originalExtension: string;
-  private readonly replacementExtension: string;
-
-  constructor({
-    originalExtension,
-    replacementExtension,
-  }: {
-    originalExtension: string;
-    replacementExtension: string;
-  }) {
-    this.originalExtension = originalExtension;
-    this.replacementExtension = replacementExtension;
-  }
-
-  processTag({ tag }: { tag: Markdoc.Tag }) {
-    if (
-      tag.name === "a" &&
-      typeof tag.attributes.href === "string" &&
-      isRelativeUrl(tag.attributes.href) &&
-      Path.parse(tag.attributes.href).ext === this.originalExtension
-    ) {
-      tag.attributes.href = transformPath({
-        path: tag.attributes.href,
-        transform: { base: undefined, ext: this.replacementExtension },
-      });
-    }
-    return tag;
-  }
-}
 
 const ensureDirectoryExists = (directory: string) => {
   if (directory.length > 0) {
@@ -99,7 +51,7 @@ export const compileMarkdocDocuments = async ({
   contentPath: string;
   layoutsPath: string;
   layoutsDefault: string;
-  renderMiddleware: RenderMiddlewareModule[];
+  renderMiddleware: Module<Tag>[];
 }) => {
   for (const markdocRelativeFilePath of globSync("**/*.md", {
     cwd: contentPath,
@@ -127,7 +79,7 @@ export const compileMarkdocDocuments = async ({
     if (Markdoc.Tag.isTag(renderNode)) {
       for (const tag of walkTag(renderNode)) {
         for (const renderMiddlewareModule of renderMiddleware) {
-          await renderMiddlewareModule.processTag({ tag });
+          await renderMiddlewareModule.process(tag);
         }
       }
     }

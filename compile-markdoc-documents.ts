@@ -6,7 +6,7 @@ import JSYAML from "js-yaml";
 
 import { globSync } from "glob";
 import isRelativeUrl from "is-relative-url";
-import { transformConfig } from "./markdocConfig.js";
+import { transformConfig } from "./markdoc-config.js";
 import {
   default as frontmatterSchema,
   Schema as Frontmatter,

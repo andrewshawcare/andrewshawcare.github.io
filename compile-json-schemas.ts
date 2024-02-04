@@ -5,7 +5,7 @@ import * as ejs from "ejs";
 import { validateTypeUsingSchema } from "./validate-type-using-schema.js";
 import { FromSchema, JSONSchema } from "json-schema-to-ts";
 
-const compileJsonSchemas = async ({
+export const compileJsonSchemas = async ({
   templatePath,
   schemaPattern,
 }: {
@@ -58,8 +58,3 @@ const compileJsonSchemas = async ({
     fs.writeFileSync(`${schemaFile}.ts`, compiledTemplate);
   }
 };
-
-await compileJsonSchemas({
-  templatePath: Path.resolve("schemas", "template.ejs"),
-  schemaPattern: "schemas/**/*.json",
-});

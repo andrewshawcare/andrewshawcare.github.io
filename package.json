@@ -4,9 +4,8 @@
     "node": "^20.10.0"
   },
   "scripts": {
-    "compile-json-schemas": "node --import ./register-hooks.js compile-json-schemas.ts",
-    "build": "npm run compile-json-schemas && node --import ./register-hooks.js build.ts",
-    "watch-build": "chokidar 'index.ts' 'compile.ts' 'content' 'static' 'tags' 'templates' 'schemas/template.ejs' 'schemas/**/*.json' --initial --command 'npm run build && touch ./reload/reload.now'",
+    "build": "node --import ./register-hooks.js build.ts",
+    "watch-build": "chokidar 'build.ts' 'content' 'static' 'tags' 'templates' 'schemas/template.ejs' 'schemas/**/*.json' --initial --command 'npm run build && touch ./reload/reload.now'",
     "serve": "reload --dir dist --watch-dir reload --exts now",
     "develop": "concurrently --kill-others-on-fail 'npm:serve' 'npm:watch-build'"
   },

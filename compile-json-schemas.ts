@@ -1,7 +1,7 @@
-import fs from "node:fs";
+import FileSystem from "node:fs";
 import Path from "node:path";
+import EJS from "ejs";
 import { globSync } from "glob";
-import * as ejs from "ejs";
 import { validateTypeUsingSchema } from "./validate-type-using-schema.js";
 import { FromSchema, JSONSchema } from "json-schema-to-ts";
 
@@ -25,12 +25,12 @@ export const compileJsonSchemas = async ({
 
   type PartialSchema = FromSchema<typeof partialSchema>;
 
-  const template = fs.readFileSync(templatePath).toString("utf8");
+  const template = FileSystem.readFileSync(templatePath).toString("utf8");
 
   for (const schemaFile of globSync(schemaPattern)) {
     const parsedSchemaFile = Path.parse(schemaFile);
     const schema = validateTypeUsingSchema<PartialSchema>(
-      JSON.parse(fs.readFileSync(schemaFile).toString("utf8")),
+      JSON.parse(FileSystem.readFileSync(schemaFile).toString("utf8")),
       partialSchema,
     );
 
@@ -51,10 +51,10 @@ export const compileJsonSchemas = async ({
       }
     }
 
-    const compiledTemplate = ejs.compile(template)({
+    const compiledTemplate = EJS.compile(template)({
       schema: JSON.stringify(schema, null, 2),
     });
 
-    fs.writeFileSync(`${schemaFile}.ts`, compiledTemplate);
+    FileSystem.writeFileSync(`${schemaFile}.ts`, compiledTemplate);
   }
 };

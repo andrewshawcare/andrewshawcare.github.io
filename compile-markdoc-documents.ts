@@ -14,6 +14,7 @@ import { Schema as Variables } from "./schemas/variables.json.js";
 import { validateTypeUsingSchema } from "./validate-type-using-schema.js";
 import { Module } from "./middleware/module.js";
 import { transformPath } from "./transform-path.js";
+import { ensureDirectoryExists } from "./file-system-utilities.js";
 
 const getFrontmatter = (node: Markdoc.Node): Frontmatter => {
   const frontmatter = node.attributes.frontmatter || "";
@@ -21,12 +22,6 @@ const getFrontmatter = (node: Markdoc.Node): Frontmatter => {
     JSYAML.load(frontmatter) || {},
     frontmatterSchema,
   );
-};
-
-const ensureDirectoryExists = (directory: string) => {
-  if (directory.length > 0) {
-    FileSystem.mkdirSync(directory, { recursive: true });
-  }
 };
 
 const walkTag = function* (

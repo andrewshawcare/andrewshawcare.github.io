@@ -5,6 +5,28 @@ import { globSync } from "glob";
 import { validateTypeUsingSchema } from "./validate-type-using-schema.js";
 import { FromSchema, JSONSchema } from "json-schema-to-ts";
 
+const schemaWithDefs = {
+  type: "object",
+  properties: {
+    $defs: {
+      type: "object",
+      patternProperties: {
+        ".": {
+          type: "object",
+          properties: {
+            $ref: { type: "string" },
+          },
+          required: ["$ref"],
+        },
+      },
+      required: [],
+    },
+  },
+  required: [],
+} as const satisfies JSONSchema;
+
+type SchemaWithDefs = FromSchema<typeof schemaWithDefs>;
+
 export const compileJsonSchemas = async ({
   templatePath,
   schemaPattern,
@@ -12,42 +34,23 @@ export const compileJsonSchemas = async ({
   templatePath: string;
   schemaPattern: string;
 }) => {
-  const partialSchema = {
-    type: "object",
-    properties: {
-      $defs: {
-        type: "object",
-        required: [],
-      },
-    },
-    required: [],
-  } as const satisfies JSONSchema;
-
-  type PartialSchema = FromSchema<typeof partialSchema>;
-
   const template = FileSystem.readFileSync(templatePath).toString("utf8");
 
   for (const schemaFile of globSync(schemaPattern)) {
-    const parsedSchemaFile = Path.parse(schemaFile);
-    const schema = validateTypeUsingSchema<PartialSchema>(
+    const schema = validateTypeUsingSchema<SchemaWithDefs>(
       JSON.parse(FileSystem.readFileSync(schemaFile).toString("utf8")),
-      partialSchema,
+      schemaWithDefs,
     );
 
     if (schema.$defs) {
+      const schemaDir = Path.parse(schemaFile).dir;
+
       for (const [key, value] of Object.entries(schema.$defs)) {
-        if (
-          value &&
-          typeof value === "object" &&
-          "$ref" in value &&
-          typeof value.$ref === "string"
-        ) {
-          const { default: referencedSchema } = await import(
-            Path.resolve(parsedSchemaFile.dir, value.$ref),
-            { assert: { type: "json" } }
-          );
-          schema.$defs[key] = referencedSchema;
-        }
+        const refJsonPath = Path.resolve(schemaDir, value.$ref);
+        const { default: refJson } = await import(refJsonPath, {
+          assert: { type: "json" },
+        });
+        schema.$defs[key] = refJson;
       }
     }
 

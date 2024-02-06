@@ -4,6 +4,7 @@
     "node": "^20.10.0"
   },
   "scripts": {
+    "prebuild": "node --import ./register-hooks.js prebuild.ts",
     "build": "node --import ./register-hooks.js build.ts",
     "watch-build": "chokidar 'build.ts' 'content' 'static' 'tags' 'templates' 'schemas/template.ejs' 'schemas/**/*.json' --initial --command 'npm run build && touch ./reload/reload.now'",
     "serve": "reload --dir dist --watch-dir reload --exts now",

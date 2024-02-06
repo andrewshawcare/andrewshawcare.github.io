@@ -1,6 +1,5 @@
 import Path from "node:path";
 
-import { compileJsonSchemas } from "./compile-json-schemas.js";
 import { compileStaticAssets } from "./compile-static-assets.js";
 import { compileMarkdocDocuments } from "./compile-markdoc-documents.js";
 import { TransformModule } from "./middleware/transform-module.js";
@@ -11,11 +10,6 @@ import { SequentialModule } from "./middleware/sequential-module.js";
 import { transformPath } from "./transform-path.js";
 
 const outputPath = Path.resolve("dist");
-
-await compileJsonSchemas({
-  templatePath: Path.resolve("schemas", "template.ejs"),
-  schemaPattern: "schemas/**/*.json",
-});
 
 await compileStaticAssets({
   outputPath,

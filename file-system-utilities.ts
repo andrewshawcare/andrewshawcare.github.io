@@ -19,3 +19,8 @@ export const overwriteDirectory = ({
   FileSystem.mkdirSync(destDir);
   FileSystem.cpSync(srcDir, destDir, { recursive: true });
 };
+
+export const getDirectories = (path: string) =>
+  FileSystem.readdirSync(path, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);

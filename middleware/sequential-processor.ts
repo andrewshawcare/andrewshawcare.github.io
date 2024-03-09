@@ -1,9 +1,9 @@
-import { Module } from "./module.js";
+import { Processor } from "./processor.js";
 
-export class SequentialModule<T> implements Module<T> {
-  modules: Module<T>[];
+export class SequentialProcessor<T> implements Processor<T> {
+  modules: Processor<T>[];
 
-  constructor({ modules }: { modules: Module<T>[] }) {
+  constructor({ modules }: { modules: Processor<T>[] }) {
     this.modules = modules;
   }
 

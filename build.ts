@@ -2,18 +2,27 @@ import Path from "node:path";
 
 import { compileStaticAssets } from "./compile-static-assets.js";
 import { compileMarkdocDocuments } from "./compile-markdoc-documents.js";
-import { TransformModule } from "./middleware/transform-module.js";
+import { TransformProcessor } from "./middleware/transform-processor.js";
 import { Tag } from "@markdoc/markdoc";
 import isRelativeUrl from "is-relative-url";
-import { FilterModule } from "./middleware/filter-module.js";
-import { SequentialModule } from "./middleware/sequential-module.js";
+import { FilterProcessor } from "./middleware/filter-processor.js";
+import { SequentialProcessor } from "./middleware/sequential-processor.js";
 import { transformPath } from "./transform-path.js";
 
 const outputPath = Path.resolve("dist");
 
 await compileStaticAssets({
   outputPath,
-  staticAssetsPath: Path.resolve("static"),
+  staticAssets: [
+    {
+      pattern: "**/*",
+      options: { cwd: "static" },
+    },
+    {
+      pattern: "**/*.png",
+      options: { cwd: "content" },
+    },
+  ],
 });
 
 await compileMarkdocDocuments({
@@ -22,12 +31,12 @@ await compileMarkdocDocuments({
   layoutsPath: Path.resolve("templates", "layouts"),
   layoutsDefault: "default",
   renderMiddleware: [
-    new SequentialModule<Tag>({
+    new SequentialProcessor<Tag>({
       modules: [
-        new FilterModule<Tag>({
+        new FilterProcessor<Tag>({
           predicate: (tag) => tag.name === "a",
         }),
-        new TransformModule<Tag, any>({
+        new TransformProcessor<Tag, any>({
           selector: (tag) => tag.attributes.href,
           transform: (href) =>
             typeof href === "string" &&

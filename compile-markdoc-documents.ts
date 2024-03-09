@@ -12,9 +12,14 @@ import {
 } from "./schemas/frontmatter.json.js";
 import { Schema as Variables } from "./schemas/variables.json.js";
 import { validateTypeUsingSchema } from "./validate-type-using-schema.js";
-import { Module } from "./middleware/module.js";
+import { Processor } from "./middleware/processor.js";
 import { transformPath } from "./transform-path.js";
-import { ensureDirectoryExists } from "./file-system-utilities.js";
+
+const ensureDirectoryExists = (directory: string) => {
+  if (directory.length > 0) {
+    FileSystem.mkdirSync(directory, { recursive: true });
+  }
+};
 
 const getFrontmatter = (node: Markdoc.Node): Frontmatter => {
   const frontmatter = node.attributes.frontmatter || "";
@@ -46,7 +51,7 @@ export const compileMarkdocDocuments = async ({
   contentPath: string;
   layoutsPath: string;
   layoutsDefault: string;
-  renderMiddleware: Module<Tag>[];
+  renderMiddleware: Processor<Tag>[];
 }) => {
   for (const markdocRelativeFilePath of globSync("**/*.md", {
     cwd: contentPath,

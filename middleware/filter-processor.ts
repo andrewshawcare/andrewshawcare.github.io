@@ -1,8 +1,8 @@
-import { Module } from "./module.js";
+import { Processor } from "./processor.js";
 
 type Predicate<T> = (item: T) => boolean;
 
-export class FilterModule<T> implements Module<T> {
+export class FilterProcessor<T> implements Processor<T> {
   predicate: Predicate<T>;
 
   constructor({ predicate }: { predicate: Predicate<T> }) {

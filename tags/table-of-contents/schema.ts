@@ -7,7 +7,11 @@ import {
   default as variablesSchema,
   Schema as Variables,
 } from "../../schemas/variables.json.js";
-import { getDirectories } from "../../file-system-utilities.js";
+
+const getDirectories = (path: string) =>
+  FileSystem.readdirSync(path, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
 
 const addAnthologies = ({
   variables,

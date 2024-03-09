@@ -10,7 +10,8 @@ The goal of model-driven design is to validate that the domain model can be appl
 
 ## What is a layered architecture?
 
-![Layered architecture](/assets/layered-architecture.png)
+![Layered architecture](layered-architecture.png)
+
 _Abel Avram and Floyd Marinescu, Domain-Driven Design Quickly (S.l.: C4Media, 2006)._
 
 A layered architecture is one where different concerns are mapped to different layers of software. In relation to domain-driven design, a layered architecture must include a domain layer that is isolated from other concerns that might cause expression of the domain model to degrade. These concerns might be related to the user interface, the application logic, or infrastructure concerns.

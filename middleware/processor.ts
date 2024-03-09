@@ -1,3 +1,3 @@
-export type Module<T> = {
+export type Processor<T> = {
   process(item: T): T | void;
 };

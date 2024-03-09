@@ -1,9 +1,9 @@
-import { Module } from "./module.js";
+import { Processor } from "./processor.js";
 
 type Selector<T, U> = (item: T) => U | void;
 type Transform<U> = (selection: U) => U;
 
-export class TransformModule<T, U> implements Module<T> {
+export class TransformProcessor<T, U> implements Processor<T> {
   selector: Selector<T, U>;
   transform: Transform<U>;
 

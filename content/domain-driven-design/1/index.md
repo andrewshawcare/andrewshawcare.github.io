@@ -2,7 +2,9 @@
 title: What is domain-driven design?
 ---
 
-## {% $frontmatter.title %}
+{% table-of-contents type="sections" /%}
+
+## What is domain-driven design?
 
 Domain-driven design is the act of designing software with emphasis towards understanding and enhancing the domain it is operating in.
 

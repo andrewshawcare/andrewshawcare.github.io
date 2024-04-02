@@ -5,14 +5,25 @@
     "frontmatter": {
       "$ref": "#/$defs/frontmatter"
     },
-    "contentDir": {
+    "sourceDirectory": {
       "type": "string"
     },
-    "outputDir": {
+    "destinationDirectory": {
       "type": "string"
+    },
+    "filename": {
+      "type": "string"
+    },
+    "content": {
+      "type": "object"
     }
   },
-  "required": ["frontmatter", "contentDir", "outputDir"],
+  "required": [
+    "frontmatter",
+    "sourceDirectory",
+    "destinationDirectory",
+    "filename"
+  ],
   "additionalProperties": false,
   "$defs": {
     "frontmatter": {

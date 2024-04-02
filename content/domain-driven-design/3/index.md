@@ -1,5 +1,6 @@
 ---
 title: Model-driven design
+layout: article
 ---
 
 ## What is model-driven design?

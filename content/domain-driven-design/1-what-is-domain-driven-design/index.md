@@ -1,8 +1,7 @@
 ---
 title: What is domain-driven design?
+layout: article
 ---
-
-{% table-of-contents type="sections" /%}
 
 ## What is domain-driven design?
 

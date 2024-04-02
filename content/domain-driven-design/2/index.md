@@ -1,5 +1,6 @@
 ---
 title: The ubiquitous language
+layout: article
 ---
 
 ## What is an ubiquitous language?

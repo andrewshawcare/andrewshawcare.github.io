@@ -1,6 +1,6 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { default as Markdoc, Node, Config } from "@markdoc/markdoc";
+import { default as Markdoc, Node, Config, Schema } from "@markdoc/markdoc";
 import * as mermaid from "@mermaid-js/mermaid-cli";
 import { randomUUID } from "node:crypto";
 import {
@@ -38,7 +38,7 @@ const generateSequenceDiagram = async (
   return path.format(outputPathObject);
 };
 
-export default {
+const schema: Schema = {
   render: "img",
   attributes: {
     type: {
@@ -66,14 +66,16 @@ export default {
       }
     }
 
-    const outputPath = await generateSequenceDiagram({
+    const destinationPath = await generateSequenceDiagram({
       content: content.join("\n"),
-      dir: variables.outputDir,
+      dir: variables.destinationDirectory,
     });
 
     return new Markdoc.Tag("img", {
-      src: path.parse(outputPath).base,
+      src: path.parse(destinationPath).base,
       alt: attributes.title,
     });
   },
 };
+
+export default schema;

@@ -1,5 +1,6 @@
 ---
 title: Preserving model integrity
+layout: article
 ---
 
 ## What is a bounded context?

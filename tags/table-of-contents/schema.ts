@@ -1,4 +1,4 @@
-import Markdoc, { Schema, Tag } from "@markdoc/markdoc";
+import Markdoc, { RenderableTreeNode, Schema, Tag } from "@markdoc/markdoc";
 import FileSystem from "node:fs";
 import Path from "node:path";
 import JSYAML from "js-yaml";
@@ -7,103 +7,48 @@ import {
   default as variablesSchema,
   Schema as Variables,
 } from "../../schemas/variables.json.js";
+import {
+  default as frontmatterSchema,
+  Schema as Frontmatter,
+} from "../../schemas/frontmatter.json.js";
+
+type Anchor = {
+  href: string;
+  title: string;
+};
 
 const getDirectories = (path: string) =>
   FileSystem.readdirSync(path, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
 
-const addAnthologies = ({
-  variables,
-  orderedListTag,
-}: {
-  variables: Variables;
-  orderedListTag: Tag;
-}) => {
-  const anthologyDirs = getDirectories(variables.contentDir);
-
-  orderedListTag.children = anthologyDirs.map((anthologyDir) => {
-    const listItemTag = new Markdoc.Tag("li");
-
-    const anchorTag = new Markdoc.Tag("a");
-    anchorTag.attributes["href"] = anthologyDir;
-
-    const articleContents = FileSystem.readFileSync(
-      Path.resolve(variables.contentDir, anthologyDir, "index.md"),
-    ).toString("utf8");
-    const articleNode = Markdoc.parse(articleContents);
-
-    const frontmatter = JSYAML.load(articleNode.attributes.frontmatter);
-    // TODO: Make a type guard function using schema
-    if (
-      typeof frontmatter === "object" &&
-      frontmatter !== null &&
-      "title" in frontmatter &&
-      typeof frontmatter.title === "string"
-    ) {
-      anchorTag.children.push(frontmatter.title || anthologyDir);
+const walkTag = function* (
+  tag: Markdoc.Tag,
+): Generator<Markdoc.Tag, void, undefined> {
+  for (const childTag of [...tag.children]) {
+    if (Markdoc.Tag.isTag(childTag)) {
+      yield childTag;
+      yield* walkTag(childTag);
     }
-
-    listItemTag.children.push(anchorTag);
-
-    return listItemTag;
-  });
+  }
 };
 
-const addArticles = ({
-  variables,
-  orderedListTag,
-}: {
-  variables: Variables;
-  orderedListTag: Tag;
-}) => {
-  const articleFilenames = FileSystem.readdirSync(variables.contentDir).filter(
-    (filename) => filename.match(/^\d+-.*.md$/),
-  );
-
-  orderedListTag.children = articleFilenames.map((articleFilename) => {
-    const listItemTag = new Markdoc.Tag("li");
-
-    const anchorTag = new Markdoc.Tag("a");
-    anchorTag.attributes["href"] = articleFilename.replace(/\.md$/, ".html");
-
-    const articleContents = FileSystem.readFileSync(
-      Path.resolve(variables.contentDir, articleFilename),
-    ).toString("utf8");
-    const articleNode = Markdoc.parse(articleContents);
-
-    const frontmatter = JSYAML.load(articleNode.attributes.frontmatter);
-    // TODO: Make a type guard function using schema
-    if (
-      typeof frontmatter === "object" &&
-      frontmatter !== null &&
-      "title" in frontmatter &&
-      typeof frontmatter.title === "string"
-    ) {
-      anchorTag.children.push(frontmatter.title || articleFilename);
-    }
-
-    listItemTag.children.push(anchorTag);
-
-    return listItemTag;
-  });
-};
-
-const tableOfContentsSchema: Schema = {
-  render: "ol",
+const schema: Schema = {
+  render: "section",
   attributes: {
     type: {
       type: String,
-      default: "articles",
-      matches: ["anthologies", "articles", "sections", "headings"],
+      default: "headings",
+      matches: ["anthologies", "articles", "headings"],
     },
   },
   transform(node, config) {
-    // TODO: Add the guard to the code-generated type
     const variables = validateTypeUsingSchema<Variables>(
       config.variables,
       variablesSchema,
     );
+
+    const { sourceDirectory, filename } = variables;
 
     const attributes = node.transformAttributes(config);
 
@@ -111,14 +56,114 @@ const tableOfContentsSchema: Schema = {
 
     switch (attributes.type) {
       case "anthologies":
-        addAnthologies({ variables, orderedListTag });
+        const anthologyDirs = getDirectories(sourceDirectory);
+        orderedListTag.children = anthologyDirs
+          .map((anthologyDir): Anchor => {
+            const articleContents = FileSystem.readFileSync(
+              Path.resolve(sourceDirectory, anthologyDir, "index.md"),
+            ).toString("utf8");
+
+            const articleNode = Markdoc.parse(articleContents);
+
+            const frontmatter = validateTypeUsingSchema<Frontmatter>(
+              JSYAML.load(articleNode.attributes.frontmatter),
+              frontmatterSchema,
+            );
+
+            return {
+              href: `${anthologyDir}/index.html`,
+              title: frontmatter.title || "",
+            };
+          })
+          .map((anchor): Tag<"li"> => {
+            const listItemTag = new Markdoc.Tag("li");
+
+            const anchorTag = new Markdoc.Tag("a");
+            anchorTag.attributes.href = anchor.href;
+            anchorTag.children.push(anchor.title);
+            listItemTag.children.push(anchorTag);
+
+            return listItemTag;
+          });
         break;
+
       case "articles":
-        addArticles({ variables, orderedListTag });
+        const articleFilenames = FileSystem.readdirSync(sourceDirectory).filter(
+          (filename) => filename.match(/^\d+-.*.md$/),
+        );
+
+        orderedListTag.children = articleFilenames
+          .map((articleFilename): Anchor => {
+            const articleContents = FileSystem.readFileSync(
+              Path.resolve(sourceDirectory, articleFilename),
+            ).toString("utf8");
+
+            const articleNode = Markdoc.parse(articleContents);
+
+            const frontmatter = validateTypeUsingSchema<Frontmatter>(
+              JSYAML.load(articleNode.attributes.frontmatter),
+              frontmatterSchema,
+            );
+
+            return {
+              href: articleFilename.replace(/\.md$/, ".html"),
+              title: frontmatter.title || "",
+            };
+          })
+          .map((anchor): Tag<"li"> => {
+            const listItemTag = new Markdoc.Tag("li");
+
+            const anchorTag = new Markdoc.Tag("a");
+            anchorTag.attributes.href = anchor.href;
+            anchorTag.children.push(anchor.title);
+            listItemTag.children.push(anchorTag);
+
+            return listItemTag;
+          });
         break;
-      case "sections":
-        break;
+
       case "headings":
+        const articleContents = FileSystem.readFileSync(
+          Path.resolve(sourceDirectory, filename),
+        ).toString("utf8");
+
+        const articleNode = Markdoc.parse(articleContents);
+        const articleRenderableTreeNode: RenderableTreeNode = Markdoc.transform(
+          articleNode,
+          config,
+        );
+
+        if (Markdoc.Tag.isTag(articleRenderableTreeNode)) {
+          const anchors: Anchor[] = [];
+          for (const tag of walkTag(articleRenderableTreeNode)) {
+            if (
+              !/h[1-6]/.test(tag.name) ||
+              typeof tag.attributes.id !== "string"
+            ) {
+              continue;
+            }
+
+            const title = tag.children.find(
+              (child) => typeof child === "string",
+            );
+
+            anchors.push({
+              href: `#${tag.attributes.id}`,
+              title: title?.toString() || "",
+            });
+
+            orderedListTag.children = anchors.map((anchor): Tag<"li"> => {
+              const listItemTag = new Markdoc.Tag("li");
+
+              const anchorTag = new Markdoc.Tag("a");
+              anchorTag.attributes.href = anchor.href;
+              anchorTag.children.push(anchor.title);
+              listItemTag.children.push(anchorTag);
+
+              return listItemTag;
+            });
+          }
+        }
         break;
     }
 
@@ -126,4 +171,4 @@ const tableOfContentsSchema: Schema = {
   },
 };
 
-export { tableOfContentsSchema };
+export default schema;

@@ -4,6 +4,9 @@
   "properties": {
     "layout": {
       "type": "string"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

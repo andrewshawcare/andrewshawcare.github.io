@@ -1,5 +1,6 @@
 ---
 title: Refactoring toward deeper insight
+layout: article
 ---
 
 ## How might one refine the domain model?

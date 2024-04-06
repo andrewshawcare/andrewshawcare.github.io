@@ -1,24 +1,5 @@
-import Markdoc, {
-  RenderableTreeNode,
-  Schema,
-  SchemaAttribute,
-} from "@markdoc/markdoc";
-
-const generateId = (
-  children: RenderableTreeNode[],
-  attributes: Record<string, SchemaAttribute>,
-) => {
-  if (attributes.id && typeof attributes.id === "string") {
-    return attributes.id;
-  }
-
-  return children
-    .filter((child) => typeof child === "string")
-    .join(" ")
-    .replace(/[?]/g, "")
-    .replace(/\s+/g, "-")
-    .toLowerCase();
-};
+import Markdoc, { Schema } from "@markdoc/markdoc";
+import slugify from "slugify";
 
 const schema: Schema = {
   children: ["inline"],
@@ -30,7 +11,10 @@ const schema: Schema = {
     const attributes = node.transformAttributes(config);
     const children = node.transformChildren(config);
 
-    const id = generateId(children, attributes);
+    const concatenatedChildStrings = children
+      .filter((child) => typeof child === "string")
+      .join("-");
+    const id = slugify(concatenatedChildStrings, { lower: true });
 
     return new Markdoc.Tag(
       `h${node.attributes["level"]}`,

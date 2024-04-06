@@ -2,21 +2,23 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import { default as Markdoc, Node, Config, Schema } from "@markdoc/markdoc";
 import * as mermaid from "@mermaid-js/mermaid-cli";
-import { randomUUID } from "node:crypto";
 import {
   default as variablesSchema,
   Schema as Variables,
 } from "../../schemas/variables.json.js";
 import { validateTypeUsingSchema } from "../../validate-type-using-schema.js";
+import slugify from "slugify";
 
 const generateSequenceDiagram = async (
-  { content, dir }: { content: string; dir: string } = { content: "", dir: "" },
+  { name, content, dir }: { name: string; content: string; dir: string } = {
+    name: "",
+    content: "",
+    dir: "",
+  },
 ) => {
   const inputMarkup = `sequenceDiagram
     ${content.split("\n").join("\n    ")}
 `;
-
-  const name = randomUUID();
   const inputPath = `${name}.mmd`;
   const outputPathObject = {
     dir,
@@ -30,6 +32,11 @@ const generateSequenceDiagram = async (
     await mermaid.run(
       inputPath,
       `${outputPathObject.dir}${path.sep}${outputPathObject.name}${outputPathObject.ext}`,
+      {
+        puppeteerConfig: {
+          headless: "new",
+        },
+      },
     );
   } finally {
     fs.rmSync(inputPath);
@@ -50,23 +57,23 @@ const schema: Schema = {
       type: String,
     },
   },
-  async transform(abstractSyntaxTreeNode: Node, transformConfig: Config) {
+  async transform(node: Node, config: Config) {
     const variables = validateTypeUsingSchema<Variables>(
-      transformConfig.variables,
+      config.variables,
       variablesSchema,
     );
 
-    const attributes =
-      abstractSyntaxTreeNode.transformAttributes(transformConfig);
+    const attributes = node.transformAttributes(config);
     const content = [];
 
-    for (const childNode of abstractSyntaxTreeNode.walk()) {
+    for (const childNode of node.walk()) {
       if (childNode.type === "text") {
         content.push(childNode.attributes.content);
       }
     }
 
     const destinationPath = await generateSequenceDiagram({
+      name: slugify(attributes.title, { lower: true }),
       content: content.join("\n"),
       dir: variables.destinationDirectory,
     });

@@ -4,7 +4,7 @@ import Markdoc, { Tag } from "@markdoc/markdoc";
 import JSYAML, { Mark } from "js-yaml";
 import { Parser } from "htmlparser2";
 import { globSync } from "glob";
-import { transformConfig } from "../markdoc-config.js";
+import markdocConfig from "../markdoc-config.js";
 import {
   default as frontmatterSchema,
   Schema as Frontmatter,
@@ -70,7 +70,7 @@ function transformNativeHtmlTagsIntoMarkdocHtmlTags(tokens: Token[]) {
   return processedTokens;
 }
 
-const parseMarkdocWithHtml = (content: string): Markdoc.Node => {
+const parseMarkdocWithHtml = (content: string) => {
   const tokenizer = new Markdoc.Tokenizer({ html: true });
   const tokens = tokenizer.tokenize(content);
   const transformedTokens = transformNativeHtmlTagsIntoMarkdocHtmlTags(tokens);
@@ -92,10 +92,10 @@ const getFrontmatter = (node: Markdoc.Node): Frontmatter => {
   );
 };
 
-const walkTag = function* (
+const walkTag = async function* (
   tag: Markdoc.Tag,
-): Generator<Markdoc.Tag, void, undefined> {
-  for (const childTag of [...tag.children]) {
+): AsyncGenerator<Markdoc.Tag> {
+  for (const childTag of await tag.children) {
     if (Markdoc.Tag.isTag(childTag)) {
       yield childTag;
       yield* walkTag(childTag);
@@ -125,102 +125,99 @@ export const compileMarkdocDocuments = async ({
   renderMiddleware: Processor<Tag>[];
 }) => {
   const layouts: Record<string, Markdoc.Node> = {};
-  layoutGlobs.forEach(({ pattern, options }) => {
+  for await (const { pattern, options } of layoutGlobs) {
     const sourceDirectory = options.cwd?.toString() || "";
 
-    globSync(pattern, options)
+    await globSync(pattern, options)
       .map(String)
-      .forEach((relativePath) => {
+      .forEach(async (relativePath) => {
         const sourcePath = Path.resolve(sourceDirectory, relativePath);
 
         const content = FileSystem.readFileSync(sourcePath, {
           encoding: "utf8",
         });
-        const node = parseMarkdocWithHtml(content);
+        const node = await parseMarkdocWithHtml(content);
 
         const name = Path.parse(sourcePath).name;
         layouts[name] = node;
       });
-  });
+  }
 
   const partials: Record<string, Markdoc.Node> = {};
-  partialGlobs.forEach(({ pattern, options }) => {
+  for await (const { pattern, options } of partialGlobs) {
     const sourceDirectory = options.cwd?.toString() || "";
 
-    globSync(pattern, options)
+    await globSync(pattern, options)
       .map(String)
-      .forEach((relativePath) => {
+      .forEach(async (relativePath) => {
         const sourcePath = Path.resolve(sourceDirectory, relativePath);
 
         const content = FileSystem.readFileSync(sourcePath, {
           encoding: "utf8",
         });
-        const node = parseMarkdocWithHtml(content);
+        const node = await parseMarkdocWithHtml(content);
 
         const name = Path.parse(sourcePath).name;
         partials[name] = node;
       });
-  });
+  }
 
-  sourceGlobs.forEach(({ pattern, options }) => {
+  for await (const { pattern, options } of sourceGlobs) {
     const sourceDirectory = options.cwd?.toString() || "";
 
-    globSync(pattern, options)
-      .map(String)
-      .forEach(async (relativePath) => {
-        const sourcePath = Path.parse(
-          Path.resolve(sourceDirectory, relativePath),
-        );
-        const destinationPath = Path.parse(
-          Path.resolve(
-            destinationDirectory,
-            transformPath({ path: relativePath, transform: { ext: ".html" } }),
-          ),
-        );
-        const content = FileSystem.readFileSync(Path.format(sourcePath), {
-          encoding: "utf8",
-        });
-        const node = Markdoc.parse(content);
+    const relativePaths = await globSync(pattern, options).map(String);
 
-        const frontmatter = getFrontmatter(node);
-
-        const variables: Variables = {
-          frontmatter,
-          sourceDirectory: sourcePath.dir,
+    for await (const relativePath of relativePaths) {
+      const sourcePath = Path.parse(
+        Path.resolve(sourceDirectory, relativePath),
+      );
+      const destinationPath = Path.parse(
+        Path.resolve(
           destinationDirectory,
-          filename: sourcePath.base,
-        };
+          transformPath({ path: relativePath, transform: { ext: ".html" } }),
+        ),
+      );
+      const content = FileSystem.readFileSync(Path.format(sourcePath), {
+        encoding: "utf8",
+      });
+      const node = Markdoc.parse(content);
 
-        const renderableTreeNode = Markdoc.transform(node, {
-          ...transformConfig,
-          variables,
-        });
+      const frontmatter = getFrontmatter(node);
 
-        if (Markdoc.Tag.isTag(renderableTreeNode)) {
-          for (const tag of walkTag(renderableTreeNode)) {
-            for (const renderMiddlewareModule of renderMiddleware) {
-              await renderMiddlewareModule.process(tag);
-            }
+      const variables: Variables = {
+        frontmatter,
+        sourceDirectory: sourcePath.dir,
+        destinationDirectory: destinationPath.dir,
+        filename: sourcePath.base,
+      };
+
+      ensureDirectoryExists(destinationPath.dir);
+
+      const renderableTreeNode = await Markdoc.transform(node, {
+        ...markdocConfig,
+        variables,
+      });
+
+      if (Markdoc.Tag.isTag(renderableTreeNode)) {
+        for await (const tag of walkTag(renderableTreeNode)) {
+          for await (const renderMiddlewareModule of renderMiddleware) {
+            await renderMiddlewareModule.process(tag);
           }
         }
+      }
 
-        const layout = frontmatter.layout || defaultLayout;
-        const layoutRenderableTreeNode = Markdoc.transform(layouts[layout], {
-          ...transformConfig,
-          variables: {
-            ...variables,
-            content: renderableTreeNode,
-          },
-          partials,
-        });
+      const layout = frontmatter.layout || defaultLayout;
+      const layoutNode = layouts[layout];
 
-        const renderedContent = Markdoc.renderers.html(
-          layoutRenderableTreeNode,
-        );
-
-        ensureDirectoryExists(destinationPath.dir);
-
-        FileSystem.writeFileSync(Path.format(destinationPath), renderedContent);
+      const layoutRenderableTreeNode = await Markdoc.transform(layoutNode, {
+        ...markdocConfig,
+        variables: { ...variables, content: renderableTreeNode },
+        partials,
       });
-  });
+
+      const renderedContent = Markdoc.renderers.html(layoutRenderableTreeNode);
+
+      FileSystem.writeFileSync(Path.format(destinationPath), renderedContent);
+    }
+  }
 };

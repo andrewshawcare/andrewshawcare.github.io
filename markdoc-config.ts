@@ -4,7 +4,7 @@ import DiagramTag from "./tags/diagram/schema.js";
 import TableOfContentsTag from "./tags/table-of-contents/schema.js";
 import HtmlTagTag from "./tags/html-tag/schema.js";
 
-export const transformConfig: Config = {
+const config: Config = {
   nodes: {
     heading: HeadingNode,
   },
@@ -14,3 +14,5 @@ export const transformConfig: Config = {
     "html-tag": HtmlTagTag,
   },
 };
+
+export default config;

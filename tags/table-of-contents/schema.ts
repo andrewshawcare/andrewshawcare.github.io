@@ -34,7 +34,7 @@ const walkTag = function* (
 };
 
 const schema: Schema = {
-  render: "section",
+  render: "ol",
   attributes: {
     type: {
       type: String,
@@ -100,8 +100,12 @@ const schema: Schema = {
 
             const articleNode = Markdoc.parse(articleContents);
 
+            const frontmatterJson = JSYAML.load(
+              articleNode.attributes.frontmatter,
+            );
+
             const frontmatter = validateTypeUsingSchema<Frontmatter>(
-              JSYAML.load(articleNode.attributes.frontmatter),
+              frontmatterJson,
               frontmatterSchema,
             );
 
@@ -128,17 +132,17 @@ const schema: Schema = {
         ).toString("utf8");
 
         const articleNode = Markdoc.parse(articleContents);
-        const articleRenderableTreeNode: RenderableTreeNode = Markdoc.transform(
-          articleNode,
-          config,
-        );
+        const articleRenderableTreeNode: RenderableTreeNode =
+          Markdoc.transform(articleNode);
 
         if (Markdoc.Tag.isTag(articleRenderableTreeNode)) {
           const anchors: Anchor[] = [];
+
           for (const tag of walkTag(articleRenderableTreeNode)) {
             if (
-              !/h[1-6]/.test(tag.name) ||
-              typeof tag.attributes.id !== "string"
+              !(
+                /h[1-6]/.test(tag.name) || typeof tag.attributes.id === "string"
+              )
             ) {
               continue;
             }
@@ -151,18 +155,18 @@ const schema: Schema = {
               href: `#${tag.attributes.id}`,
               title: title?.toString() || "",
             });
-
-            orderedListTag.children = anchors.map((anchor): Tag<"li"> => {
-              const listItemTag = new Markdoc.Tag("li");
-
-              const anchorTag = new Markdoc.Tag("a");
-              anchorTag.attributes.href = anchor.href;
-              anchorTag.children.push(anchor.title);
-              listItemTag.children.push(anchorTag);
-
-              return listItemTag;
-            });
           }
+
+          orderedListTag.children = anchors.map((anchor): Tag<"li"> => {
+            const listItemTag = new Markdoc.Tag("li");
+
+            const anchorTag = new Markdoc.Tag("a");
+            anchorTag.attributes.href = anchor.href;
+            anchorTag.children.push(anchor.title);
+            listItemTag.children.push(anchorTag);
+
+            return listItemTag;
+          });
         }
         break;
     }

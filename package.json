@@ -27,6 +27,7 @@
     "json-schema-to-ts": "3.0.0",
     "markdown-it": "14.1.0",
     "reload": "3.2.1",
+    "slugify": "1.6.6",
     "ts-node": "10.9.2",
     "typescript": "5.3.3"
   }

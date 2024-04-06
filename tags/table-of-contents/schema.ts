@@ -42,7 +42,7 @@ const schema: Schema = {
       matches: ["anthologies", "articles", "headings"],
     },
   },
-  transform(node, config) {
+  async transform(node, config) {
     const variables = validateTypeUsingSchema<Variables>(
       config.variables,
       variablesSchema,
@@ -133,7 +133,7 @@ const schema: Schema = {
 
         const articleNode = Markdoc.parse(articleContents);
         const articleRenderableTreeNode: RenderableTreeNode =
-          Markdoc.transform(articleNode);
+          await Markdoc.transform(articleNode, config);
 
         if (Markdoc.Tag.isTag(articleRenderableTreeNode)) {
           const anchors: Anchor[] = [];

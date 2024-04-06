@@ -215,6 +215,17 @@ export const compileMarkdocDocuments = async ({
         partials,
       });
 
+      // Hack, brittle, not good. Figure out why this works and never do it again.
+      if (Markdoc.Tag.isTag(layoutRenderableTreeNode)) {
+        layoutRenderableTreeNode.children =
+          await layoutRenderableTreeNode.children;
+        for await (const childTag of walkTag(layoutRenderableTreeNode)) {
+          if (childTag.children instanceof Promise) {
+            childTag.children = await childTag.children;
+          }
+        }
+      }
+
       const renderedContent = Markdoc.renderers.html(layoutRenderableTreeNode);
 
       FileSystem.writeFileSync(Path.format(destinationPath), renderedContent);

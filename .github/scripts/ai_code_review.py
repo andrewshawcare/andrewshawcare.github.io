@@ -110,7 +110,7 @@ def post_comments(comments, pr):
                     line=comment['line']
                 )
         except Exception as e:
-            print(f"Failed to post comment: {str(e)}")
+            print(f"Failed to post comment: {comment} {str(e)}")
 
 def main():
     ai_client = AIClient()
@@ -128,8 +128,6 @@ def main():
         ).decode('utf-8')
 
         feedback = ai_client.analyze_code(diff)
-        
-        print(feedback)
 
         if feedback.get('comments'):
             post_comments(feedback['comments'], pr)

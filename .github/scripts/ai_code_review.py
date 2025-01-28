@@ -2,7 +2,7 @@ import os
 import json
 import subprocess
 import requests
-from github import Github, GithubException
+from github import Github, GithubException, Commit
 
 class AIClient:
     def __init__(self):
@@ -105,7 +105,7 @@ def post_comments(comments, pr):
                 
                 pr.create_review_comment(
                     body=body,
-                    commit=pr.head.sha,
+                    commit=repo.get_commit(pr.head.sha),
                     path=comment['file'],
                     line=comment['line']
                 )

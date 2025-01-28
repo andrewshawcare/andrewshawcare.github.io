@@ -2,7 +2,7 @@ import os
 import json
 import subprocess
 import requests
-from github import Github
+from github import Github, GithubException
 
 class AIClient:
     def __init__(self):
@@ -109,7 +109,7 @@ def post_comments(comments, pr):
                     path=comment['file'],
                     line=comment['line']
                 )
-        except github.GithubException.GithubException as e:
+        except GithubException as e:
             print(f"Failed to post comment: {comment} {str(e)} {e.status} {e.data} {e.headers}")
 
 def main():

@@ -124,10 +124,8 @@ def main():
         pr = repo.get_pull(event['number'])
 
         diff = subprocess.check_output(
-            ['git', 'diff', '--unified=0', pr.base.sha, pr.head.sha]
+            ['git', 'diff', '--unified=0', pr.base.sha, pr.head.sha, ':(exclude)package-lock.json']
         ).decode('utf-8')
-        
-        print(diff)
 
         feedback = ai_client.analyze_code(diff)
 

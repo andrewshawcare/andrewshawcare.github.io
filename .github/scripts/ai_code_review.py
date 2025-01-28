@@ -126,6 +126,8 @@ def post_comments(comments, pr, line_mapping):
                 
                 commit=repo.get_commit(pr.head.sha)
                 
+                print(f'Adding review comment for line {line_mapping[comment['line']]}: {comment}')
+                
                 pr.create_review_comment(
                     body=body,
                     commit=commit,

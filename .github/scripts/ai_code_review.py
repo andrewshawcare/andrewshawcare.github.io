@@ -128,6 +128,8 @@ def main():
         ).decode('utf-8')
 
         feedback = ai_client.analyze_code(diff)
+        
+        print(feedback)
 
         if feedback.get('comments'):
             post_comments(feedback['comments'], pr)

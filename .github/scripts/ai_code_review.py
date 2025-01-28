@@ -126,6 +126,8 @@ def main():
         diff = subprocess.check_output(
             ['git', 'diff', '--unified=0', pr.base.sha, pr.head.sha]
         ).decode('utf-8')
+        
+        print(diff)
 
         feedback = ai_client.analyze_code(diff)
 

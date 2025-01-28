@@ -111,7 +111,7 @@ def post_comments(comments, pr):
                 )
         except Exception as e:
             print(f"Failed to post comment: {comment} {str(e)}")
-            print(f"GitHub API Error: {e.data if hasattr(e, 'data') else e}")
+            print(json.dumps(e))
 
 def main():
     ai_client = AIClient()

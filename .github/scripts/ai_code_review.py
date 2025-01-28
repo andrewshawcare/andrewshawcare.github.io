@@ -109,7 +109,7 @@ def post_comments(comments, pr):
                     path=comment['file'],
                     line=comment['line']
                 )
-        except Github.GithubException.GithubException as e:
+        except github.GithubException.GithubException as e:
             print(f"Failed to post comment: {comment} {str(e)} {e.status} {e.data} {e.headers}")
 
 def main():

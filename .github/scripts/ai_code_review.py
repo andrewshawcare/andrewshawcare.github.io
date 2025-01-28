@@ -17,7 +17,7 @@ class AIClient:
         }
         self.models = {
             'deepseek': 'deepseek-coder',
-            'openai': 'gpt-4-turbo'
+            'openai': 'gpt-4o'
         }
 
     def analyze_code(self, diff):

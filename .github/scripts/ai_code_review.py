@@ -109,8 +109,8 @@ def post_comments(comments, pr):
                     path=comment['file'],
                     line=comment['line']
                 )
-        except Exception as e:
-            print(f"Failed to post comment: {comment} {str(e)}")
+        except GithubException as e:
+            print(f"Failed to post comment: {comment} {str(e)} {e.status} {e.data} {e.headers}")
 
 def main():
     ai_client = AIClient()

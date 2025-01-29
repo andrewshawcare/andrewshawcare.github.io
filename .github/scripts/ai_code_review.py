@@ -86,7 +86,7 @@ Format response as JSON with:
 Do not repeat any of the comments already provided.
 
 Comments:
-{comments}
+{str(comments)}
 
 Diff:
 {diff}

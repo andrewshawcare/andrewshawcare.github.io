@@ -28,6 +28,8 @@ class AIClient:
 
         prompt = self._create_prompt(diff, comments)
         
+        print(prompt)
+        
         payload = {
             "model": self.models[self.provider],
             "messages": [{"role": "user", "content": prompt}],

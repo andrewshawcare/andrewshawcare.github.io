@@ -55,6 +55,7 @@ class AIClient:
             raise RuntimeError(f"AI API failed: {str(e)}")
 
     def _create_prompt(self, diff, comments):
+        comments_str = '\n'.join([f"* {comment.body}" for comment in comments])
         return f"""As a senior code reviewer, analyze this code diff. Check for:
 - Code quality issues
 - Potential bugs
@@ -86,7 +87,7 @@ Format response as JSON with:
 Do not repeat any of the comments already provided.
 
 Comments:
-{'\n'.join([f"* {comment.body}" for comment in comments])}
+{comments_str}
 
 Diff:
 {diff}

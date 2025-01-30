@@ -34,7 +34,7 @@ const generateSequenceDiagram = async (
       `${outputPathObject.dir}${path.sep}${outputPathObject.name}${outputPathObject.ext}`,
       {
         puppeteerConfig: {
-          headless: "new",
+          args: ["--no-sandbox"]
         },
       },
     );

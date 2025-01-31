@@ -2,4 +2,4 @@
 title: Zettelkasten
 ---
 
-{% table-of-contents type="anthologies" /%}
+{% table-of-contents type="articles" /%}

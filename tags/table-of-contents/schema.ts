@@ -38,7 +38,6 @@ const schema: Schema = {
   attributes: {
     type: {
       type: String,
-      default: "headings",
       matches: ["anthologies", "articles", "headings"],
     },
   },

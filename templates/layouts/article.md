@@ -6,7 +6,7 @@
 
 # {% $frontmatter.title %}
 
-{% table-of-contents /%}
+{% table-of-contents type="headings" /%}
 
 {% $content %}
 

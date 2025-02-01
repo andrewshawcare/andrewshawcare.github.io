@@ -1,3 +1,8 @@
+---
+title: Fleeting notes
+layout: article
+---
+
 # Fleeting notes
 
 [How to take Smart Notes](https://amzn.to/3WIicl0) describes three types of notes:

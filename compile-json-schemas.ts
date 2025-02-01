@@ -48,7 +48,7 @@ export const compileJsonSchemas = async ({
       for (const [key, value] of Object.entries(schema.$defs)) {
         const refJsonPath = Path.resolve(schemaDir, value.$ref);
         const { default: refJson } = await import(refJsonPath, {
-          assert: { type: "json" },
+          with: { type: "json" },
         });
         schema.$defs[key] = refJson;
       }

@@ -4,11 +4,21 @@
 
 <body>
 
-# {% $frontmatter.title %}
+<article>
 
-{% table-of-contents type="headings" /%}
+    <header>
+        # {% $frontmatter.title %}
 
-{% $content %}
+        <nav>
+            {% table-of-contents type="headings" /%}
+        </nav>
+    </header>
+
+    <main>
+        {% $content %}
+    </main>
+
+</article>
 
 </body>
 

@@ -157,7 +157,7 @@ export const compileMarkdocDocuments = async ({
         });
         const node = await parseMarkdocWithHtml(content);
 
-        const name = Path.parse(sourcePath).name;
+        const name = Path.parse(sourcePath).base;
         partials[name] = node;
       });
   }

@@ -6,17 +6,23 @@
 
 <article>
 
-    <header>
-        # {% $frontmatter.title %}
+<header>
 
-        <nav>
-            {% table-of-contents type="headings" /%}
-        </nav>
-    </header>
+# {% $frontmatter.title %}
 
-    <main>
-        {% $content %}
-    </main>
+<nav>
+
+{% table-of-contents type="headings" /%}
+
+</nav>
+
+</header>
+
+<main>
+
+{% $content %}
+
+</main>
 
 </article>
 

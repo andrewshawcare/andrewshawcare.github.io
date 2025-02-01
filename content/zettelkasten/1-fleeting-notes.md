@@ -5,9 +5,9 @@ layout: article
 
 [How to take Smart Notes](https://amzn.to/3WIicl0) describes three types of notes:
 
-* Fleeting notes
-* Reference notes
-* Permanent notes
+* Fleeting
+* Reference
+* Permanent
 
 Fleeting notes are used to record thoughts as soon as they happen. At a later time, they are compiled into permanent notes and discarded.
 

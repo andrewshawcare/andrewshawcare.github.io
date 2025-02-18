@@ -2,9 +2,9 @@
 
 {% partial file="head.md" /%}
 
-<body class="p-3 container">
+<body>
 
-<article>
+<article class="article">
 
 <header>
 

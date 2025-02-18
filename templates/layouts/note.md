@@ -4,7 +4,7 @@
 
 <body>
 
-<article class="w-50 my-3 mx-auto p-3 card">
+<article class="note">
 
 <header>
 

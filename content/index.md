@@ -1,3 +1,5 @@
-# Andrew Shaw Care
+---
+title: Andrew Shaw Care
+---
 
 {% table-of-contents type="anthologies" %}

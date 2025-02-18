@@ -1,9 +1,11 @@
 ---
 title: Fleeting notes
-layout: article
+layout: note
 ---
 
-_Fleeting notes_ are used to record thoughts as soon as they happen. At a later time, they are compiled into [permanent notes](./3-permanent-notes.md) and discarded.
+Fleeting notes are used to record thoughts as soon as they happen.
+
+At a later time, they are compiled into [permanent notes](./3-permanent-notes.md) and discarded.
 
 The etymology of _fleeting_:
 

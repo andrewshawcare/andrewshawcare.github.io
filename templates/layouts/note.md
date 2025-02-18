@@ -2,9 +2,9 @@
 
 {% partial file="head.md" /%}
 
-<body class="p-3 container">
+<body>
 
-<article>
+<article class="w-50 my-3 mx-auto p-3 card">
 
 <header>
 

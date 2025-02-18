@@ -2,7 +2,7 @@
 
 {% partial file="head.md" /%}
 
-<body>
+<body class="p-3 container">
 
 # {% $frontmatter.title %}
 

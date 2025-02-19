@@ -21,37 +21,28 @@ const getVariablesFromConfig = (config: Markdoc.Config) =>
 const addBreadcrumbs = async (navTag: Markdoc.Tag, config: Markdoc.Config) => {
     const { sourceDirectory, contentDirectory, filename } =  getVariablesFromConfig(config);
     
+    const isDirectory = filename === "index.md";
     const pathname = Path.join(sourceDirectory.replace(contentDirectory, ""), filename);
     const pathparts = pathname.split("/");
 
-    let breadcrumbPathParts = [];
-
-    console.log({contentDirectory, pathname, pathparts})
+    const breadcrumbPathParts = [];
 
     for (const pathpart of pathparts) {
         breadcrumbPathParts.push(pathpart);
         const breadcrumbRelativePath = Path.join(...breadcrumbPathParts);
 
-        console.log({breadcrumbPathParts, breadcrumbRelativePath})
+        const isFirstPart = breadcrumbPathParts.length === 1;
+        const isLastPart = breadcrumbPathParts.join("/") === pathname;
 
-        let path = Path.resolve(contentDirectory);
-
-        // If the paths are the same and end in an index, we are at a directory, otherwise we need to continue
-        if (breadcrumbPathParts.join("/") === pathname) {
-            if (breadcrumbRelativePath.endsWith("index.md")) {
-                break;
-            }
-            path = Path.resolve(path, breadcrumbRelativePath);
-        } else {
-            path = Path.resolve(path, breadcrumbRelativePath, "index.md");
+        if (!isFirstPart && isLastPart && isDirectory) {
+            break;
         }
 
-        console.log({path})
+        const path = isLastPart ?
+            Path.resolve(contentDirectory, breadcrumbRelativePath) :
+            Path.resolve(contentDirectory, breadcrumbRelativePath, "index.md");
 
-        const articleContents = await FileSystem.promises.readFile(
-            path,
-            "utf8"
-        );
+        const articleContents = await FileSystem.promises.readFile(path, "utf8");
 
         const articleNode = Markdoc.parse(articleContents);
 
@@ -60,20 +51,18 @@ const addBreadcrumbs = async (navTag: Markdoc.Tag, config: Markdoc.Config) => {
             frontmatterSchema,
         );
 
-        const anchorTag = new Markdoc.Tag("a");
-
-        anchorTag.children.push(frontmatter.title || "");
-
-        anchorTag.attributes.href = `${breadcrumbPathParts.join("/")}/`;
-
+        const href = `${breadcrumbPathParts.map(part => encodeURIComponent(part)).join("/")}/`;
+        const anchorTag = new Markdoc.Tag("a", { href }, [ frontmatter.title || "" ]);
         navTag.children.push(anchorTag);
 
-        navTag.children.push(new Markdoc.Tag("span", { class: "arrow" }, ["→"]));
+        const spanTag = new Markdoc.Tag("span", { class: "arrow" }, ["→"]);
+        navTag.children.push(spanTag);
     }
 
-    navTag.children.pop();
+    // Remove the last arrow and link from the last breadcrumb
+    if (navTag.children.length > 1) {
+        navTag.children.pop();
 
-    if (navTag.children.length > 0) {
         const lastChild = navTag.children[navTag.children.length - 1];
         if (lastChild instanceof Markdoc.Tag) {
             delete lastChild.attributes.href;

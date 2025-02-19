@@ -4,6 +4,8 @@
 
 <body>
 
+{% breadcrumb-navigation /%}
+
 <article class="note">
 
 <header>

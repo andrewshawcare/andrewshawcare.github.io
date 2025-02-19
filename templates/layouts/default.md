@@ -4,6 +4,8 @@
 
 <body>
 
+{% breadcrumb-navigation /%}
+
 <article>
 
 # {% $frontmatter.title %}

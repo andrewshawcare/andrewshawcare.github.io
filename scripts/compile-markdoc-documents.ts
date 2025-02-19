@@ -111,6 +111,7 @@ type Glob = {
 
 export const compileMarkdocDocuments = async ({
   destinationDirectory,
+  contentDirectory,
   sourceGlobs,
   layoutGlobs,
   partialGlobs,
@@ -118,6 +119,7 @@ export const compileMarkdocDocuments = async ({
   renderMiddleware,
 }: {
   destinationDirectory: string;
+  contentDirectory: string;
   sourceGlobs: Glob[];
   layoutGlobs: Glob[];
   partialGlobs: Glob[];
@@ -188,6 +190,7 @@ export const compileMarkdocDocuments = async ({
         frontmatter,
         sourceDirectory: sourcePath.dir,
         destinationDirectory: destinationPath.dir,
+        contentDirectory,
         filename: sourcePath.base,
       };
 

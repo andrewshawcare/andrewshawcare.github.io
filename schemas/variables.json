@@ -11,6 +11,9 @@
     "destinationDirectory": {
       "type": "string"
     },
+    "contentDirectory": {
+      "type": "string"
+    },
     "filename": {
       "type": "string"
     },
@@ -21,6 +24,7 @@
   "required": [
     "frontmatter",
     "sourceDirectory",
+    "contentDirectory",
     "destinationDirectory",
     "filename"
   ],

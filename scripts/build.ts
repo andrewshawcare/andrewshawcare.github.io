@@ -9,6 +9,7 @@ import { FilterProcessor } from "../middleware/filter-processor.js";
 import { SequentialProcessor } from "../middleware/sequential-processor.js";
 
 const destinationDirectory = Path.resolve("dist");
+const contentDirectory = Path.resolve("content");
 
 await compileStaticAssets({
   destinationDirectory,
@@ -26,6 +27,7 @@ await compileStaticAssets({
 
 await compileMarkdocDocuments({
   destinationDirectory,
+  contentDirectory,
   sourceGlobs: [
     {
       pattern: "**/*.md",

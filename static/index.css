@@ -6,6 +6,7 @@ body {
 }
 
 .breadcrumb.navigation {
+    margin: 3rem 0;
     font-size: smaller;
     .arrow {
         padding: 0 0.5rem;

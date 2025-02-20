@@ -5,7 +5,7 @@ layout: note
 
 Fleeting notes record thoughts as they happen.
 
-Later they are compiled into [permanent notes](./2-permanent-notes.md) and discarded.
+Later they are compiled into [permanent notes](./permanent-notes.md) and discarded.
 
 The etymology of _fleeting_:
 

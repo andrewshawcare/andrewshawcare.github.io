@@ -17,7 +17,7 @@ const schema: Schema = {
     const id = slugify(concatenatedChildStrings, { lower: true });
 
     return new Markdoc.Tag(
-      `h${node.attributes["level"]}`,
+      `h${attributes["level"]}`,
       { ...attributes, id },
       children,
     );

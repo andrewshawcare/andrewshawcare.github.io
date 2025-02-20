@@ -88,7 +88,7 @@ const schema: Schema = {
 
       case "articles":
         const articleFilenames = FileSystem.readdirSync(sourceDirectory).filter(
-          (filename) => filename.match(/^.*.md$/),
+          (filename) => filename.match(/^(?!index\.md$).*\.md$/),
         );
 
         orderedListTag.children = articleFilenames

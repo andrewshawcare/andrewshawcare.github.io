@@ -3,7 +3,7 @@ title: Fleeting notes
 layout: note
 ---
 
-Fleeting notes record thoughts as they happen.
+A fleeting note records a thought shortly after having it.
 
 The etymology of _fleeting_:
 
@@ -11,8 +11,10 @@ The etymology of _fleeting_:
 
 _Shifting, unstable._ A thought from the past does not carry the same meaning in the present. Memory is imperfect and imaginative. Supporting context may be lost.
 
-_Floating, drifting._ We do not choose our thoughts. We have them with us for as long as attention and memory allow.
+_Floating, drifting._ We do not choose our thoughts. We have little control over how we attend to them.
 
-_Flying, moving swiftly._ Our attention wanders frantically. New thoughts arrive and old thoughts depart.
+_Flying, moving swiftly._ Attention and meaning combine into thought. Perception shifts our attention forward. New meaning is identified.
+
+_Existing only briefly._ Thoughts stay with us for as long as attention and memory allow.
 
 [1]: https://www.etymonline.com/word/fleeting "fleeting (adj.)"

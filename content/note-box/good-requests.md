@@ -1,3 +1,8 @@
+---
+title: Good requests
+layout: default
+---
+
 A good request has balanced specificity and flexibility.
 
 It has an objective outcome, practical constraints, and orienting context.

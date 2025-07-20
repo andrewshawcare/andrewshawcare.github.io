@@ -8,5 +8,7 @@ We must know the [consequence](./consequence.md) of the request to know it's imp
 
 We must get our [bearings](./bearings.md) to orient our path to the goal.
 
-We must define [boundaries](./boundaries.md) to determine when we are off the path.
+We must define [boundaries](./boundaries.md) to determine where the path may lie.
+
+We must define [constraints](./constraints.md) to focus our activity.
 

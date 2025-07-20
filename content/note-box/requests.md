@@ -1,5 +1,5 @@
 ---
-title: Request
+title: Requests
 layout: default
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Bearings
-layout: default
 ---
 
 When attempting to achieve a goal, get your bearings:

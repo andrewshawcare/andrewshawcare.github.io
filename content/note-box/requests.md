@@ -1,6 +1,5 @@
 ---
 title: Requests
-layout: default
 ---
 
 A good request has an objective outcome, practical constraints, and orienting context.

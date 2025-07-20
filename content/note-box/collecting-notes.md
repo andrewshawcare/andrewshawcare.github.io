@@ -1,6 +1,5 @@
 ---
 title: Collecting notes
-layout: note
 ---
 
 1. For every interesting thought, write a [fleeting note](./fleeting-notes.md).

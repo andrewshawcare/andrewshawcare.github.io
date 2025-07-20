@@ -1,6 +1,5 @@
 ---
 title: Testing
-layout: default
 ---
 
 There is a distinction between building the right thing and building the thing right.

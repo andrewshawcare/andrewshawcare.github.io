@@ -1,6 +1,5 @@
 ---
 title: Fleeting notes
-layout: note
 ---
 
 A fleeting note records a thought shortly after having it.

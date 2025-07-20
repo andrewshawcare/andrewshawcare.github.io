@@ -1,3 +1,3 @@
 ---
-title: Ambiguity
+title: Terms
 ---

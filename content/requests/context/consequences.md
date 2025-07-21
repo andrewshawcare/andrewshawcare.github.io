@@ -1,5 +1,5 @@
 ---
-title: Consequence
+title: Consequences
 ---
 
 A request must have a consequence if it is to have value.

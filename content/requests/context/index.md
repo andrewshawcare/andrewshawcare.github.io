@@ -4,8 +4,6 @@ title: Context
 
 Context helps understand the landscape of a request and our role within it.
 
-We must be aware of the following context:
-
 ## Environmental
 
 The landscape and how it changes over time.

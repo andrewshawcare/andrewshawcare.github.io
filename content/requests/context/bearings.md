@@ -2,7 +2,11 @@
 title: Bearings
 ---
 
+## Motivation
+
 Understanding where you are in relation to your goal helps understand the path you need to take and where you may falter.
+
+## Questions
 
 * Where are you right now relative to completing this goal?
 * Where would you be if you achieve this goal?

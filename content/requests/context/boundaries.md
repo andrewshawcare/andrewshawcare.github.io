@@ -4,14 +4,6 @@ title: Boundaries
 
 > If we tried to act beyond this point, what would stop us?
 
-A boundary defines the limits of where we can act.
-
-Boundaries can be real or assumed.
-
-Boundaries can change.
-
-Boundaries shape actions by introducing resources or constraints within the actionable landscape.
-
 ## Questions
 
 ### Scope

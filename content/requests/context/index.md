@@ -16,9 +16,9 @@ The landscape and how it changes over time.
 
 Our journey from where we are to where we want to be.
 
-* [Bearings](./bearings.md) define where we are, where we want to be, and where we do not want to be.
-* [Criteria](./criteria.md) validate that we have arrived where we want to be.
-* [Consequences](./consequences.md) describe what happens after we have arrived.
+* [Bearings](./bearings.md) orient us towards the goal.
+* [Criteria](./criteria.md) validate we have arrived at the goal.
+* [Consequences](./consequences.md) show us where we can go next.
 
 ## Relational
 

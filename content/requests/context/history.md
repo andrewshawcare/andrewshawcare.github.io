@@ -1,8 +1,10 @@
 ---
 title: History
 ---
+
 > What do we risk repeating?
-## Previous attempts
+
+## Attempts
 
 Past efforts to achieve similar goals.
 
@@ -42,16 +44,16 @@ Past choices that created current conditions.
 
 Learning from experience.
 
-- What knowledge is documented?
-- What knowledge exists but isn't documented?
-- What mistakes do people warn against repeating?
-- What success factors have been identified?
+* What knowledge is documented?
+* What knowledge exists but isn't documented?
+* What mistakes do people warn against repeating?
+* What success factors have been identified?
 
 ## Evolution
 
-How things have laid themselves out over time.
+Adaptation over time.
 
-- How has this domain evolved?
-- What used to work but no longer does?
-- What new capabilities or constraints have emerged?
-- How have priorities shifted over time?
+* How has this domain evolved?
+* What used to work but no longer does?
+* What new capabilities or constraints have emerged?
+* How have priorities shifted over time?

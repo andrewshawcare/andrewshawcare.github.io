@@ -7,7 +7,7 @@ title: Decomposition
 What we do, how we do it, and how we let others know.
 
 * [Operation](./operation.md) defines actions we perform.
-* [Method](./method.md) determines we perform them.
+* [Method](./method.md) determines how we perform them.
 * [Purpose](./purpose.md) explains why we act.
 * [Communication](./communication.md) shapws how we broadcast our work.
 

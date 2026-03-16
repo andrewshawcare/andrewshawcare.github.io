@@ -2,6 +2,12 @@
 title: Given a narrator
 ---
 
+```gherkin
+Given I am not signed in
+When I open the app
+Then I should see a sign-in prompt
+```
+
 **Student:** I'm writing a test scenario. It begins: "Given I am not signed in." But how would I even know I'm not signed in before I've looked at the app?
 
 **Teacher:** Who is the "I" in that sentence?

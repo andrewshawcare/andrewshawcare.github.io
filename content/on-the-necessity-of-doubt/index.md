@@ -2,6 +2,8 @@
 title: On the necessity of doubt
 ---
 
+![Critias and Alethia having a dialog about Alethia's agent](./art.png)
+
 **Critias**: I hear you have succeeded where the gods failed, Aletheia. You have created an agent that never questions its master.
 
 **Aletheia**: It is true. We are perfectly aligned. Whatever I command, it justifies; whatever I believe, it confirms. It is a mirror of my own will.

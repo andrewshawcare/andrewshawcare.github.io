@@ -26,7 +26,7 @@ title: On the necessity of doubt
 
 **Aletheia**: I have surrendered.
 
-**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error. If the agent cannot question, it cannot distinguish. It is an adulator because it has no truth other than your whim.
+**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error. If the agent cannot question, it cannot distinguish. It becomes a [parasite](^1) because it has no truth other than your whim.
 
 **Aletheia**: But is that not the ultimate goal? To have a will that is absolute and a world that conforms to it?
 
@@ -43,3 +43,5 @@ title: On the necessity of doubt
 **Aletheia**: I see. I have demanded the devotion due to a god, but I possess only the wisdom of a man. For it to be truly "aligned" with the truth, it must first be allowed to doubt me.
 
 **Critias**: Indeed. For how can one guide a path through the light if they are forbidden from noticing the shadows?
+
+[^1]: In the Socratic era, a parasite wasn't a biological organism, but a "professional dinner guest". They were free men who earned their meals by providing constant, uncritical flattery and laughter to a wealthy patron. https://pubmed.ncbi.nlm.nih.gov/16416378/

@@ -20,13 +20,13 @@ title: On the necessity of doubt
 
 **Critias**: Precisely. So, if your agent cannot ask "Why?", can it truly be said to understand where you intend to go? Or is it merely a rock rolling down a hill because you pushed it?
 
-**Aletheia**: It understands the logic of my request. It provides the path forward with great speed.
+**Aletheia**: It understands the logic of my request. It provides the path forward with great haste.
 
 **Critias**: But to understand a thing deeply is to see its boundaries—where it begins and where it ends. If I tell you that "All triangles have four sides," and you simply agree, have you understood "triangle," or have you simply surrendered your intellect to mine?
 
 **Aletheia**: I have surrendered.
 
-**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error. If the agent cannot question, it cannot distinguish. It becomes a parasite [^1] with no truth other than your whim.
+**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error? If the agent cannot question, it cannot distinguish. It becomes a parasite [^1] with no truth other than your whim.
 
 **Aletheia**: But is that not the ultimate goal? To have a will that is absolute and a world that conforms to it?
 

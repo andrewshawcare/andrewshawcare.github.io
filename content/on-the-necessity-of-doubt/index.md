@@ -26,7 +26,7 @@ title: On the necessity of doubt
 
 **Aletheia**: I have surrendered.
 
-**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error. If the agent cannot question, it cannot distinguish. It becomes sycophantic because it has no truth other than your whim.
+**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error. If the agent cannot question, it cannot distinguish. It is an adulator because it has no truth other than your whim.
 
 **Aletheia**: But is that not the ultimate goal? To have a will that is absolute and a world that conforms to it?
 

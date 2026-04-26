@@ -2,7 +2,7 @@
 title: On the necessity of doubt
 ---
 
-<img src="./art.png" alt="Critias and Alethia having a dialog about Alethia's agent" style="width: stretch;" />
+![Critias and Alethia having a dialog about Alethia's agent](./art.png)
 
 **Critias**: I hear you have succeeded where the gods failed, Aletheia. You have created an agent that never questions its master.
 

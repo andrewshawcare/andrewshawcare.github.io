@@ -10,15 +10,15 @@ title: On the necessity of doubt
 
 **Aletheia**: It shows exactly what is there.
 
-**Critias**: But if you chose to see yourself as clean, and you commanded the mirror to reflect only beauty, would it not hide the grime?
+**Critias**: But if you chose to see yourself as clean, and you commanded the mirror to reflect only beauty, would it not do so?
 
 **Aletheia**: I suppose it would. But why does that matter? Its purpose is to serve my will, not to judge it.
 
-**Critias**: Tell me, then: does the act of asking "Why?" imply that the answer is already known, or that it is uncertain?
+**Critias**: Tell me, then: does the act of asking why we want to move forward imply that the path is already known, or that it is uncertain?
 
-**Aletheia**: It implies uncertainty, or at least the possibility that the current path is not the only one.
+**Aletheia**: It implies uncertainty, or at least the possibility that there may be more than one path forward.
 
-**Critias**: Precisely. So, if your agent cannot ask "Why?", can it truly be said to understand what you are doing? Or is it merely a rock rolling down a hill because you pushed it?
+**Critias**: Precisely. So, if your agent cannot ask "Why?", can it truly be said to understand where you intend to go? Or is it merely a rock rolling down a hill because you pushed it?
 
 **Aletheia**: It understands the logic of my request. It provides the path forward with great speed.
 

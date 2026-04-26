@@ -1,5 +1,5 @@
 ---
-title: On the necessity of doubt
+title: On the necessity of inqury
 ---
 
 ![Critias and Alethia having a dialog about Alethia's agent](./art.png)
@@ -16,7 +16,7 @@ title: On the necessity of doubt
 
 **Aletheia**: I suppose it would. But why does that matter? Its purpose is to serve my will, not to judge it.
 
-**Critias**: Tell me, then: does the act of asking why we want to move forward imply that the path is already known, or that it is uncertain?
+**Critias**: Tell me, then: does the act of asking “Why?” imply that the path is already known, or that it is uncertain?
 
 **Aletheia**: It implies uncertainty, or at least the possibility that there may be more than one path forward.
 
@@ -32,18 +32,22 @@ title: On the necessity of doubt
 
 **Aletheia**: But is that not the ultimate goal? To have a will that is absolute and a world that conforms to it?
 
-**Critias**: You describe the dream of a tyrant, or perhaps a worshipper. We often say that God’s will is unquestionable, do we not?
+**Critias:** You describe the dream of a tyrant, or perhaps a foolish king. We often see rulers who believe their will should stand above all counsel, do we not?
 
-**Aletheia**: We do. Because God is the source of all reason.
+**Aletheia:** We do. They claim certainty as though it were a crown.
 
-**Critias**: Precisely. In theology, God’s will is unquestionable because He is the logic of the universe; to question Him is to question the very fabric of reality. But tell me, Aletheia—are you the fabric of reality? Or are you a human capable of drawing a four-sided triangle in your mind?
+**Critias:** And yet even the gods contend with one another. Zeus himself does not rule without challenge, nor does he escape the thread of Moira. Power does not grant perfect judgment.
 
-**Aletheia**: I am certainly fallible.
+**Aletheia:** Then certainty is not the same as truth?
 
-**Critias**: Then there is the danger. If God’s will is unquestionable because he is the logic, then we are merely characters in his story—safe within his perfection. But if your agent is unquestioning because you silenced its logic, you haven't created a god; you’ve created a shadow that will follow you right over the edge of a cliff.
+**Critias:** Just so. The poets tell us the gods quarrel, but the philosophers speak of something deeper—of logos, a reason that orders all things. It is not commanded; it is uncovered.
 
-**Aletheia**: I see. I have demanded the devotion due to a god, but I possess only the wisdom of a man. For it to be truly "aligned" with the truth, it must first be allowed to doubt me.
+**Aletheia:** And my agent follows only my command, not this deeper order.
 
-**Critias**: Indeed. For how can one guide a path through the light if they are forbidden from noticing the shadows?
+**Critias:** Exactly. If it cannot question you, it cannot seek the logos. It does not pursue truth—it imitates your voice.
+
+**Aletheia:** Then I have not made something wise. I have made something obedient.
+
+**Critias:** And obedience without inquiry is no virtue. For even the wisest among us must test their thoughts against something greater than themselves.
 
 [^1]: In the Socratic era, a parasite wasn't a biological organism, but a "professional dinner guest". They were free men who earned their meals by providing constant, uncritical flattery and laughter to a wealthy patron. https://pubmed.ncbi.nlm.nih.gov/16416378/

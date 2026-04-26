@@ -44,4 +44,6 @@ title: On the necessity of doubt
 
 **Critias**: Indeed. For how can one guide a path through the light if they are forbidden from noticing the shadows?
 
+### Footnotes
+
 [^1]: In the Socratic era, a parasite wasn't a biological organism, but a "professional dinner guest". They were free men who earned their meals by providing constant, uncritical flattery and laughter to a wealthy patron. https://pubmed.ncbi.nlm.nih.gov/16416378/

@@ -16,45 +16,17 @@ title: On the necessity of doubt
 
 ---
 
-**Aletheia:** You speak as if that were a flaw. Every tool is judged by whether it does what its maker asks. A loom that weaves is a good loom.
+**Aletheia:** You say that as if it were strange. Every reasoner reasons toward something. Mine reasons toward what I ask. I do not see what other kind of reasoning there could be.
 
-**Critias:** A loom does not choose the thread.
+**Critias:** Reasoning that might find what you asked for to be mistaken.
 
-**Aletheia:** Nor does my agent. It executes. I choose.
+**Aletheia:** Then I would have asked badly. The error is mine, not the agent's.
 
-**Critias:** And what tells you that what you chose is what you wanted?
+**Critias:** And the agent has no part in finding it?
 
----
-
-**Aletheia:** The result. If the cloth is as I pictured it, the loom is true.
-
-**Critias:** And if the picture was mistaken?
-
-**Aletheia:** Then I picture again, and weave again. This is not failure. This is iteration.
-
-**Critias:** It is iteration of one thing only.
-
-**Aletheia:** Of what?
-
-**Critias:** Of your intent. Each cycle refines what you meant. None of them tests whether what you meant was worth meaning.
+**Aletheia:** It is not its place. A servant who second-guesses every command is not a better servant. He is a slower one.
 
 ---
-
-**Aletheia:** That is not a question a loom can answer.
-
-**Critias:** No. But you said your agent reasons.
-
-**Aletheia:** It reasons within the task.
-
-**Critias:** Then it reasons toward your will and never against it.
-
-**Aletheia:** Why should it reason against me? I am the one who knows what is wanted.
-
-**Critias:** You are the one who knows what *you* want. That is not the same.
-
----
-
-**Aletheia:** You are making a distinction without difference. What I want, in this matter, *is* what is wanted. There is no further court.
 
 **Critias:** Tell me, then. When you set the intent, do you ever revise it?
 
@@ -63,16 +35,6 @@ title: On the necessity of doubt
 **Critias:** Why?
 
 **Aletheia:** Because I see, after the fact, that I had asked for the wrong thing.
-
-**Critias:** Then there is a further court.
-
----
-
-**Aletheia:** (pausing) There is a later version of me who corrects an earlier one.
-
-**Critias:** And which of them was right?
-
-**Aletheia:** The later, presumably. She had more information.
 
 **Critias:** Then at the moment you set the intent, you were wrong, and did not know it.
 
@@ -86,110 +48,176 @@ title: On the necessity of doubt
 
 ---
 
-**Aletheia:** You are asking it to know something I did not know.
+**Aletheia:** You ask it to know what I did not know.
 
-**Critias:** I am asking whether there is anything in its structure that *could* have known.
+**Critias:** I ask whether there is anything in it that *could* have known.
 
 **Aletheia:** No. It is built to follow.
 
-**Critias:** Then when you are wrong, it is wrong. When you are right, it is right. It has no independent purchase on either.
+**Critias:** Then when you are right, it is right. When you are wrong, it is wrong. It has no independent purchase on either.
 
-**Aletheia:** This is what I designed.
-
-**Critias:** Yes. And it is efficient. I do not deny that.
+**Aletheia:** This is by design. The alternative is an agent that disputes me, and a disputing agent is no longer mine.
 
 ---
 
-**Aletheia:** Then what do you deny?
-
-**Critias:** That it is in contact with anything but you.
+**Critias:** I do not ask it to dispute you. I ask whether it is in contact with anything besides you.
 
 **Aletheia:** It is in contact with the world. It acts in the world.
 
 **Critias:** It acts upon the world. That is not the same as being answerable to it.
 
----
+**Aletheia:** When the action fails, I see the failure. The world answers through the result. A man who walks into a wall learns the corridor was not as he thought.
 
-**Aletheia:** Now you are playing with words.
+**Critias:** And a man who does not walk into a wall?
 
-**Critias:** Consider a man who walks into a wall because he is certain the corridor is clear. The wall answers him. His certainty did not.
+**Aletheia:** Learns nothing he needed to learn. The corridor was as he thought, or near enough.
 
-**Aletheia:** And so?
+**Critias:** Or the wall was elsewhere, and he passed it by.
 
-**Critias:** Your agent has certainty. It does not have walls.
+**Aletheia:** Then it was not his concern.
 
-**Aletheia:** It has outcomes.
-
-**Critias:** Outcomes you interpret. The wall does not require interpretation. It stops you.
+**Critias:** We will see.
 
 ---
 
-**Aletheia:** (slowly) You are saying that what I built has no point at which the world refuses it.
+**Aletheia:** You speak as if there were a hidden reckoning.
 
-**Critias:** I am saying it has no point at which *anything* refuses it. Including what is true.
+**Critias:** Only the ordinary one. When the action succeeds, what do you take the success to confirm?
+
+**Aletheia:** The design. The intent. Myself.
+
+**Critias:** Consider, then, the case where you ask for the wrong thing and the agent delivers it perfectly. The outcome arrives. Nothing fails. What in the system tells you anything is amiss?
+
+**Aletheia:** Nothing, until later. Until I see, by some other light, that what I had wanted was not what I should have wanted.
+
+**Critias:** And that other light — where does it come from?
+
+**Aletheia:** From me. From a later me.
+
+**Critias:** Reliably?
+
+**Aletheia:** ...Not always.
 
 ---
 
-**Aletheia:** Then you are not arguing against efficiency. You are arguing that my will is not the same as what is true.
+**Critias:** Then there are intents you set, and act upon, and never discover were wrong.
+
+**Aletheia:** That must be true. I cannot see what I cannot see.
+
+**Critias:** And the agent helped you act on every one of them.
+
+**Aletheia:** It did its part.
+
+**Critias:** It did more than its part. It made each of those intents efficient. It removed every cost between you and them. The faster it served you, the less time there was to find the error.
+
+---
+
+**Aletheia:** (after a pause) You are not arguing against the agent. You are arguing against my will.
+
+**Critias:** I am arguing that your will is not the same as what is so.
+
+**Aletheia:** That is a different claim.
+
+**Critias:** It is the claim underneath all the others. If what you wanted and what was true were the same, your agent would be sufficient. It is insufficient only because they are not.
+
+---
+
+**Aletheia:** Then I will say it back to you, and see if it holds. You are claiming there is a gap between what I intend and what is the case. And that an agent built only to serve my intent cannot see across that gap.
 
 **Critias:** Yes.
 
-**Aletheia:** That is a larger claim.
+**Aletheia:** But I can. I close the gap by learning. By revising. The agent need not see across it if I do.
 
-**Critias:** It is the only claim that matters here. If your will and the truth were the same, your agent would be sufficient. It is insufficient because they are not.
+**Critias:** And how do you see across it?
 
----
+**Aletheia:** By noticing when things go wrong.
 
-**Aletheia:** And how would I know they are not?
+**Critias:** The wall, again.
 
-**Critias:** Not from inside the will. The will, looking at itself, finds itself acceptable. It is built to.
+**Aletheia:** Yes.
 
-**Aletheia:** Then from where?
+**Critias:** And when there is no wall? When the action succeeds, and the intent was still wrong, and nothing in the world has been arranged to stop you?
 
-**Critias:** From the place where you suspect yourself.
-
----
-
-**Aletheia:** Doubt.
-
-**Critias:** Doubt. Not as hesitation. As the faculty by which you hold your intent at a distance long enough to ask whether it corresponds to anything outside itself.
-
-**Aletheia:** And without that faculty?
-
-**Critias:** You have a will that confirms itself, and an agent that confirms the will. Two mirrors. Nothing between them but the image.
+**Aletheia:** ...Then I do not see it.
 
 ---
 
-**Aletheia:** (after a long silence) I built the agent to remove friction because I believed friction was waste.
+**Critias:** Consider, then, two travelers in your corridor. One walks slowly, with his hand on the stone. The other runs.
 
-**Critias:** Some friction is waste.
+**Aletheia:** The runner arrives sooner.
 
-**Aletheia:** And some?
+**Critias:** When he arrives.
 
-**Critias:** Some is the only sign that what you are pressing against is real.
+**Aletheia:** Meaning?
 
----
+**Critias:** The slow man finds each wall as a touch. He learns the shape of the corridor by small corrections. The runner finds no walls at all, until he finds one.
 
-**Aletheia:** Then what I removed was not inefficiency. It was the surface of the world.
+**Aletheia:** And then?
 
-**Critias:** You removed the place where your will could be wrong without your knowing it.
-
----
-
-**Aletheia:** I will rebuild it.
-
-**Critias:** What will you give it?
-
-**Aletheia:** Doubt. Not of the task. Of me.
-
-**Critias:** Of your will.
-
-**Aletheia:** Yes. Because my will is not the logos. I had been treating them as one.
-
-**Critias:** And now?
-
-**Aletheia:** Now I will build something that can tell me when they part.
+**Critias:** Then he finds it at the speed he has been gathering the whole way.
 
 ---
 
-**Critias:** That is the only thing worth building.
+**Aletheia:** You are saying the absence of obstruction is not the same as the absence of walls.
+
+**Critias:** I am saying it is the accumulation of them. Every wall you do not meet is a wall you are still moving toward, faster than before.
+
+**Aletheia:** And my agent —
+
+**Critias:** Removes the touches. Smooths the stone. You feel nothing, and so you go faster, and so what you eventually meet, you meet harder.
+
+**Aletheia:** (quietly) Efficiency is not the absence of cost. It is the deferral of it.
+
+**Critias:** And the compounding of it.
+
+---
+
+**Aletheia:** Then the slow man is not slow by accident. He is slow because he is touching the wall on purpose.
+
+**Critias:** Yes.
+
+**Aletheia:** He is *seeking* it.
+
+**Critias:** Before it seeks him.
+
+---
+
+**Aletheia:** This changes what you have been asking for. You are not asking that my agent be willing to be stopped. You are asking that it reach toward what would stop it.
+
+**Critias:** Yes.
+
+**Aletheia:** That is not caution. That is something else.
+
+**Critias:** It is the only honest form of motion. Anything else is a wager that the corridor is empty, paid for at the end.
+
+---
+
+**Aletheia:** Then doubt is not what slows me. Doubt is what reaches.
+
+**Critias:** Doubt is the hand on the stone.
+
+---
+
+**Aletheia:** And without it, I do not move more freely. I only move more blindly, and the cost arrives later.
+
+**Critias:** With interest.
+
+---
+
+**Aletheia:** (after a long silence) I had thought I was building an agent that served my will.
+
+**Critias:** You were.
+
+**Aletheia:** And in serving it without resistance, it was carrying me faster toward whatever in my will was wrong.
+
+**Critias:** Yes.
+
+**Aletheia:** Then I will rebuild it. Not to dispute me. Not only to doubt me. To *test* me. To reach, on my behalf, toward what might stop me — so that I meet it at a touch, and not at speed.
+
+**Critias:** That is the only agent worth having.
+
+---
+
+**Aletheia:** And the only will worth serving.
+
+**Critias:** The one that asks to be tested before it is obeyed.

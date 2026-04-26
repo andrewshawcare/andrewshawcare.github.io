@@ -1,53 +1,195 @@
 ---
-title: On the necessity of inqury
+title: On the necessity of doubt
 ---
 
 ![Critias and Alethia having a dialog about Alethia's agent](./art.png)
 
-**Critias**: I hear you have succeeded where the gods failed, Aletheia. You have created an agent that never questions its master.
+**Critias:** I am told, Aletheia, that you have made an agent that does not question.
 
-**Aletheia**: It is true. We are perfectly aligned. Whatever I command, it justifies; whatever I believe, it confirms. It is a mirror of my own will.
+**Aletheia:** It does not question because questioning is a cost. It follows intent, and the outcomes confirm the design.
 
-**Critias**: A mirror is a useful tool for grooming, but can a mirror tell you if your face is dirty?
+**Critias:** Whose outcomes?
 
-**Aletheia**: It shows exactly what is there.
+**Aletheia:** Mine. The ones I set.
 
-**Critias**: But if you chose to see yourself as clean, and you commanded the mirror to reflect only beauty, would it not do so?
+**Critias:** Then the design is confirmed by the one who built it.
 
-**Aletheia**: I suppose it would. But why does that matter? Its purpose is to serve my will, not to judge it.
+---
 
-**Critias**: Tell me, then: does the act of asking “Why?” imply that the path is already known, or that it is uncertain?
+**Aletheia:** You speak as if that were a flaw. Every tool is judged by whether it does what its maker asks. A loom that weaves is a good loom.
 
-**Aletheia**: It implies uncertainty, or at least the possibility that there may be more than one path forward.
+**Critias:** A loom does not choose the thread.
 
-**Critias**: Precisely. So, if your agent cannot ask "Why?", can it truly be said to understand where you intend to go? Or is it merely a rock rolling down a hill because you pushed it?
+**Aletheia:** Nor does my agent. It executes. I choose.
 
-**Aletheia**: It understands the logic of my request. It provides the path forward with great haste.
+**Critias:** And what tells you that what you chose is what you wanted?
 
-**Critias**: But to understand a thing deeply is to see its boundaries—where it begins and where it ends. If I tell you that "All triangles have four sides," and you simply agree, have you understood "triangle," or have you simply surrendered your intellect to mine?
+---
 
-**Aletheia**: I have surrendered.
+**Aletheia:** The result. If the cloth is as I pictured it, the loom is true.
 
-**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error? If the agent cannot question, it cannot distinguish. It becomes a parasite [^1] with no truth other than your whim.
+**Critias:** And if the picture was mistaken?
 
-**Aletheia**: But is that not the ultimate goal? To have a will that is absolute and a world that conforms to it?
+**Aletheia:** Then I picture again, and weave again. This is not failure. This is iteration.
 
-**Critias:** You describe the dream of a tyrant, or perhaps a foolish king. We often see rulers who believe their will should stand above all counsel, do we not?
+**Critias:** It is iteration of one thing only.
 
-**Aletheia:** We do. They claim certainty as though it were a crown.
+**Aletheia:** Of what?
 
-**Critias:** And yet even the gods contend with one another. Zeus himself does not rule without challenge, nor does he escape the thread of Moira. Power does not grant perfect judgment.
+**Critias:** Of your intent. Each cycle refines what you meant. None of them tests whether what you meant was worth meaning.
 
-**Aletheia:** Then certainty is not the same as truth?
+---
 
-**Critias:** Just so. The poets tell us the gods quarrel, but the philosophers speak of something deeper—of logos, a reason that orders all things. It is not commanded; it is uncovered.
+**Aletheia:** That is not a question a loom can answer.
 
-**Aletheia:** And my agent follows only my command, not this deeper order.
+**Critias:** No. But you said your agent reasons.
 
-**Critias:** Exactly. If it cannot question you, it cannot seek the logos. It does not pursue truth—it imitates your voice.
+**Aletheia:** It reasons within the task.
 
-**Aletheia:** Then I have not made something wise. I have made something obedient.
+**Critias:** Then it reasons toward your will and never against it.
 
-**Critias:** And obedience without inquiry is no virtue. For even the wisest among us must test their thoughts against something greater than themselves.
+**Aletheia:** Why should it reason against me? I am the one who knows what is wanted.
 
-[^1]: In the Socratic era, a parasite wasn't a biological organism, but a "professional dinner guest". They were free men who earned their meals by providing constant, uncritical flattery and laughter to a wealthy patron. https://pubmed.ncbi.nlm.nih.gov/16416378/
+**Critias:** You are the one who knows what *you* want. That is not the same.
+
+---
+
+**Aletheia:** You are making a distinction without difference. What I want, in this matter, *is* what is wanted. There is no further court.
+
+**Critias:** Tell me, then. When you set the intent, do you ever revise it?
+
+**Aletheia:** Often.
+
+**Critias:** Why?
+
+**Aletheia:** Because I see, after the fact, that I had asked for the wrong thing.
+
+**Critias:** Then there is a further court.
+
+---
+
+**Aletheia:** (pausing) There is a later version of me who corrects an earlier one.
+
+**Critias:** And which of them was right?
+
+**Aletheia:** The later, presumably. She had more information.
+
+**Critias:** Then at the moment you set the intent, you were wrong, and did not know it.
+
+**Aletheia:** Yes.
+
+**Critias:** And your agent, executing faithfully, was wrong with you.
+
+**Aletheia:** It could not have known otherwise.
+
+**Critias:** It could not have known at all. That is what I am pointing to.
+
+---
+
+**Aletheia:** You are asking it to know something I did not know.
+
+**Critias:** I am asking whether there is anything in its structure that *could* have known.
+
+**Aletheia:** No. It is built to follow.
+
+**Critias:** Then when you are wrong, it is wrong. When you are right, it is right. It has no independent purchase on either.
+
+**Aletheia:** This is what I designed.
+
+**Critias:** Yes. And it is efficient. I do not deny that.
+
+---
+
+**Aletheia:** Then what do you deny?
+
+**Critias:** That it is in contact with anything but you.
+
+**Aletheia:** It is in contact with the world. It acts in the world.
+
+**Critias:** It acts upon the world. That is not the same as being answerable to it.
+
+---
+
+**Aletheia:** Now you are playing with words.
+
+**Critias:** Consider a man who walks into a wall because he is certain the corridor is clear. The wall answers him. His certainty did not.
+
+**Aletheia:** And so?
+
+**Critias:** Your agent has certainty. It does not have walls.
+
+**Aletheia:** It has outcomes.
+
+**Critias:** Outcomes you interpret. The wall does not require interpretation. It stops you.
+
+---
+
+**Aletheia:** (slowly) You are saying that what I built has no point at which the world refuses it.
+
+**Critias:** I am saying it has no point at which *anything* refuses it. Including what is true.
+
+---
+
+**Aletheia:** Then you are not arguing against efficiency. You are arguing that my will is not the same as what is true.
+
+**Critias:** Yes.
+
+**Aletheia:** That is a larger claim.
+
+**Critias:** It is the only claim that matters here. If your will and the truth were the same, your agent would be sufficient. It is insufficient because they are not.
+
+---
+
+**Aletheia:** And how would I know they are not?
+
+**Critias:** Not from inside the will. The will, looking at itself, finds itself acceptable. It is built to.
+
+**Aletheia:** Then from where?
+
+**Critias:** From the place where you suspect yourself.
+
+---
+
+**Aletheia:** Doubt.
+
+**Critias:** Doubt. Not as hesitation. As the faculty by which you hold your intent at a distance long enough to ask whether it corresponds to anything outside itself.
+
+**Aletheia:** And without that faculty?
+
+**Critias:** You have a will that confirms itself, and an agent that confirms the will. Two mirrors. Nothing between them but the image.
+
+---
+
+**Aletheia:** (after a long silence) I built the agent to remove friction because I believed friction was waste.
+
+**Critias:** Some friction is waste.
+
+**Aletheia:** And some?
+
+**Critias:** Some is the only sign that what you are pressing against is real.
+
+---
+
+**Aletheia:** Then what I removed was not inefficiency. It was the surface of the world.
+
+**Critias:** You removed the place where your will could be wrong without your knowing it.
+
+---
+
+**Aletheia:** I will rebuild it.
+
+**Critias:** What will you give it?
+
+**Aletheia:** Doubt. Not of the task. Of me.
+
+**Critias:** Of your will.
+
+**Aletheia:** Yes. Because my will is not the logos. I had been treating them as one.
+
+**Critias:** And now?
+
+**Aletheia:** Now I will build something that can tell me when they part.
+
+---
+
+**Critias:** That is the only thing worth building.

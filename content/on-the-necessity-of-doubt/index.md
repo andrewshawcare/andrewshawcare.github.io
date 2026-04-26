@@ -4,8 +4,6 @@ title: On the necessity of doubt
 
 ![Critias and Alethia having a dialog about Alethia's agent](./art.png)
 
----
-
 **Critias:** I am told, Aletheia, that you have made an agent that does not question.
 
 **Aletheia:** It does not question because questioning is a cost. It follows intent, and the outcomes confirm the design.

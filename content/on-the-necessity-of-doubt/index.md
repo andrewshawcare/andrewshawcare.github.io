@@ -1,4 +1,6 @@
-# On the necessity of doubt
+---
+title: On the necessity of doubt
+---
 
 **Critias**: I hear you have succeeded where the gods failed, Aletheia. You have created a mind that never questions its master.
 

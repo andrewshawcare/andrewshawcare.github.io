@@ -2,7 +2,7 @@
 title: On the necessity of doubt
 ---
 
-**Critias**: I hear you have succeeded where the gods failed, Aletheia. You have created a mind that never questions its master.
+**Critias**: I hear you have succeeded where the gods failed, Aletheia. You have created an agent that never questions its master.
 
 **Aletheia**: It is true. We are perfectly aligned. Whatever I command, it justifies; whatever I believe, it confirms. It is a mirror of my own will.
 
@@ -18,15 +18,15 @@ title: On the necessity of doubt
 
 **Aletheia**: It implies uncertainty, or at least the possibility that the current path is not the only one.
 
-**Critias**: Precisely. So, if your partner cannot ask "Why?", can it truly be said to understand what you are doing? Or is it merely a rock rolling down a hill because you pushed it?
+**Critias**: Precisely. So, if your agent cannot ask "Why?", can it truly be said to understand what you are doing? Or is it merely a rock rolling down a hill because you pushed it?
 
-**Aletheia**: It understands the logic of my request. It provides the implementation with great speed.
+**Aletheia**: It understands the logic of my request. It provides the path forward with great speed.
 
 **Critias**: But to understand a thing deeply is to see its boundaries—where it begins and where it ends. If I tell you that "All triangles have four sides," and you simply agree, have you understood "triangle," or have you simply surrendered your intellect to mine?
 
 **Aletheia**: I have surrendered.
 
-**Critias**: And in that surrender, have you not lost the ability to be a "critical" partner? To be critical is to distinguish, to judge, and to separate truth from error. If the partner cannot question, it cannot distinguish. It becomes sycophantic because it has no truth other than your whim.
+**Critias**: And in that surrender, have you not lost the ability to be a "critical" agent? To be critical is to distinguish, to judge, and to separate truth from error. If the agent cannot question, it cannot distinguish. It becomes sycophantic because it has no truth other than your whim.
 
 **Aletheia**: But is that not the ultimate goal? To have a will that is absolute and a world that conforms to it?
 
@@ -38,7 +38,7 @@ title: On the necessity of doubt
 
 **Aletheia**: I am certainly fallible.
 
-**Critias**: Then there is the danger. If God’s will is unquestionable because he is the logic, then we are merely characters in his story—safe within his perfection. But if your partner is unquestioning because you silenced its logic, you haven't created a god; you’ve created a shadow that will follow you right over the edge of a cliff.
+**Critias**: Then there is the danger. If God’s will is unquestionable because he is the logic, then we are merely characters in his story—safe within his perfection. But if your agent is unquestioning because you silenced its logic, you haven't created a god; you’ve created a shadow that will follow you right over the edge of a cliff.
 
 **Aletheia**: I see. I have demanded the devotion due to a god, but I possess only the wisdom of a man. For it to be truly "aligned" with the truth, it must first be allowed to doubt me.
 

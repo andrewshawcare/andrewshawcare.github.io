@@ -112,9 +112,9 @@ title: On the silence of record
 ---
 
 {% dialogue %}
-{% line speaker="Aletheia" %}(after a moment) There is something worse here. I see it now. If I write a trial that asks whether the agent did what I asked, and the agent passes it whenever it does what I asked — then in time, what I asked *becomes* the standard. The trial no longer judges the work. The work has taught the trial what to expect.{% /line %}
+{% line speaker="Aletheia" %}(after a moment) There is something worse here. I see it now. A trial asks a question of the work. But the work, repeated, becomes the answer the trial expects — and in time, the trial stops asking. It only confirms. The work has taught the trial what to expect, and a trial that cannot be surprised is no longer a trial.{% /line %}
 {% line speaker="Critias" %}Go on.{% /line %}
-{% line speaker="Aletheia" %}And the writing does the same. If I describe what the agent does, and the description is read as though it were what the agent *should* do — then the act has become its own measure. The deed instructs the law that was meant to instruct the deed.{% /line %}
+{% line speaker="Aletheia" %}And the writing does the same. I describe what the agent does, meaning to set a standard. But the description fits the work more closely with each revision, until the description is only an account of what the agent does, read as though it were what the agent should do. The deed has instructed the law that was meant to instruct the deed.{% /line %}
 {% line speaker="Critias" %}Yes.{% /line %}
 {% line speaker="Aletheia" %}This is the same disease in two forms.{% /line %}
 {% line speaker="Critias" %}It is one disease. The record of what was done, mistaken for the account of what should be. Whether the record is a writing or a trial does not matter. Both calcify around the act. Both forget what the act was for.{% /line %}

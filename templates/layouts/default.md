@@ -14,6 +14,8 @@
 
 </article>
 
+{% partial file="footer.md" /%}
+
 </body>
 
 </html>

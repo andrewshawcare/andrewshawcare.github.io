@@ -19,8 +19,8 @@ const getVariablesFromConfig = (config: Markdoc.Config) =>
     );
 
 const addBreadcrumbs = async (navTag: Markdoc.Tag, config: Markdoc.Config) => {
-    const { sourceDirectory, contentDirectory, filename } =  getVariablesFromConfig(config);
-    
+    const { sourceDirectory, contentDirectory, filename } = getVariablesFromConfig(config);
+
     const isDirectory = filename === "index.md";
     const pathname = Path.join(sourceDirectory.replace(contentDirectory, ""), filename);
     const pathparts = pathname.split("/");
@@ -52,10 +52,10 @@ const addBreadcrumbs = async (navTag: Markdoc.Tag, config: Markdoc.Config) => {
         );
 
         const href = `${breadcrumbPathParts.map(part => encodeURIComponent(part)).join("/")}/`;
-        const anchorTag = new Markdoc.Tag("a", { href }, [ frontmatter.title || "" ]);
+        const anchorTag = new Markdoc.Tag("a", { href }, [frontmatter.title || ""]);
         navTag.children.push(anchorTag);
 
-        const spanTag = new Markdoc.Tag("span", { class: "arrow" }, ["→"]);
+        const spanTag = new Markdoc.Tag("span", { class: "separator" }, ["•"]);
         navTag.children.push(spanTag);
     }
 

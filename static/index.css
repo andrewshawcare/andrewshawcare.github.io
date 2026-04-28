@@ -1,16 +1,8 @@
-body {
-    margin: 3rem auto;
-    padding: 1rem;
-    max-width: 64ch;
-    font-family: "Inter", sans-serif;
-    line-height: 2rem;
-}
-
 .breadcrumb.navigation {
     margin: 1rem 0;
     font-size: smaller;
 
-    .arrow {
+    .separator {
         padding: 0 0.5rem;
     }
 }
@@ -20,7 +12,343 @@ img {
     height: auto;
 }
 
+/* ─────────────────────────────────────────────────────────────────────
+   Editorial — a literary serif style for long-form writing.
+   Set in Crimson Pro (body) + Inter (UI / labels).
+   Load fonts in your HTML <head>:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+   ───────────────────────────────────────────────────────────────────── */
+
+:root {
+    --paper: #f6f2ea;
+    --ink: #241d16;
+    --ink-soft: #5a4a36;
+    --rule: #d9cfbb;
+    --accent: #8a4d2a;
+
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --serif: "Crimson Pro", "Source Serif 4", "Iowan Old Style", Georgia, serif;
+
+    --measure: 64ch;
+}
+
+/* Optional theme overrides — toggle via <body class="theme-light"> etc. */
+.theme-light {
+    --paper: #faf7f1;
+    --ink: #1a140d;
+    --ink-soft: #6a5a44;
+    --rule: #e3dac5;
+}
+
+.theme-dark {
+    --paper: #1a1612;
+    --ink: #ebe2d2;
+    --ink-soft: #9a8d76;
+    --rule: #3a3025;
+    --accent: #d49565;
+}
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+/* Article container — single-column reading measure */
+body>article {
+    max-width: var(--measure);
+    margin: 24px auto 0;
+    padding: 0 32px 64px;
+    counter-reset: scene-break;
+}
+
+/* ── Display type ───────────────────────────────────────────────────── */
+
+/* Italic literary headline — used for h1 and large feature titles */
+h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+}
+
+h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    margin: 0 0 6px;
+}
+
+/* ── Inter UI labels (uppercase, tightly-tracked) ───────────────────── */
+
+/* Brand / wordmark in nav */
+.breadcrumb.navigation {
+    padding: 1rem;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Section / category label above a title */
+.eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+/* Author / date strip below a title */
+.byline {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 56px;
+}
+
+/* Speaker name at the start of a dialogue line */
+.speaker {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+/* Plate / figure number ("PLATE I.") */
+.plate-number {
+    font-family: var(--sans);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-right: 8px;
+}
+
+/* Back-to-top link */
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 64px;
+    padding: 8px 0;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color .12s, border-color .12s;
+}
+
+.back-to-top:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+}
+
+.back-to-top .arrow {
+    font-size: 14px;
+    letter-spacing: 0;
+    transition: transform .15s;
+}
+
+.back-to-top:hover .arrow {
+    transform: translateY(-2px);
+}
+
+/* Scene / section break — horizontal rule with centered label */
 hr {
-    border: none;
-    border-top: 1px solid gainsboro;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    height: 1.6em;
+    margin: 48px 0;
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    counter-increment: scene-break;
+}
+
+hr::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: var(--ink);
+    opacity: 0.32;
+    transform: translateY(-50%);
+}
+
+hr::after {
+    content: counter(scene-break, upper-roman);
+    position: relative;
+    z-index: 1;
+    background: var(--paper);
+    padding: 0 18px;
+}
+
+/* ── Captions ───────────────────────────────────────────────────────── */
+figure {
+    margin: 0;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+}
+
+figcaption {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 14px;
+}
+
+/* ── Drop cap ───────────────────────────────────────────────────────── */
+.dropcap {
+    float: left;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 5em;
+    line-height: 0.85;
+    padding: 6px 12px 0 0;
+    color: var(--accent);
+}
+
+/* ── Stage direction (italic parenthetical) ─────────────────────────── */
+em.stage {
+    color: var(--ink-soft);
+}
+
+/* ── Top bar ────────────────────────────────────────────────────────── */
+.topbar {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+}
+
+.topbar a {
+    text-decoration: none;
+}
+
+.topbar nav {
+    display: flex;
+    gap: 28px;
+    color: var(--ink-soft);
+}
+
+.topbar nav a:hover {
+    color: var(--ink);
+}
+
+/* ── Footer (dark slab) ─────────────────────────────────────────────── */
+.site-footer {
+    margin-top: 96px;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.site-footer .colophon {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 48px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: rgba(255, 247, 232, 0.72);
+}
+
+.site-footer .colophon .brand {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--paper);
+    margin-bottom: 6px;
+}
+
+.site-footer .colophon .meta {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.site-footer .colophon a {
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 247, 232, 0.3);
+    padding-bottom: 1px;
+}
+
+.site-footer .colophon a:hover {
+    border-bottom-color: var(--paper);
+}
+
+.site-footer .colophon .right {
+    text-align: right;
+}
+
+.site-footer .colophon .right>div+div {
+    margin-top: 6px;
 }

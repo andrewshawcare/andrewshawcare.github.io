@@ -234,6 +234,34 @@ hr::after {
     padding: 0 18px;
 }
 
+/* ── Code ───────────────────────────────────────────────────────────── */
+code {
+    font-family: "SFMono-Regular", "Fira Code", "Fira Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    font-size: 0.75em;
+    background: color-mix(in srgb, var(--ink) 6%, var(--paper));
+    color: var(--accent);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+}
+
+pre {
+    background: color-mix(in srgb, var(--ink) 6%, var(--paper));
+    border-left: 3px solid var(--rule);
+    border-radius: 4px;
+    margin: 1.75rem 0;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    line-height: 1.55;
+    font-size: 0.8rem;
+}
+
+pre code {
+    background: none;
+    color: var(--ink);
+    padding: 0;
+    border-radius: 0;
+}
+
 /* ── Captions ───────────────────────────────────────────────────────── */
 figure {
     margin: 0;

@@ -113,7 +113,7 @@ title: On the silence of record
 
 {% dialogue %}
 {% line speaker="Aletheia" %}(after a moment) There is something worse here. I see it now. A trial asks a question of the work. But the work, repeated, becomes the answer the trial expects — and in time, the trial stops asking. It only confirms. The work has taught the trial what to expect, and a trial that cannot be surprised is no longer a trial.{% /line %}
-{% line speaker="Critias" %}Go on.{% /line %}
+{% line speaker="Critias" %}And the writing?{% /line %}
 {% line speaker="Aletheia" %}And the writing does the same. I describe what the agent does, meaning to set a standard. But the description fits the work more closely with each revision, until the description is only an account of what the agent does, read as though it were what the agent should do. The deed has instructed the law that was meant to instruct the deed.{% /line %}
 {% line speaker="Critias" %}Yes.{% /line %}
 {% line speaker="Aletheia" %}This is the same disease in two forms.{% /line %}
